@@ -2,11 +2,11 @@
 
 ## Table of Contents
 
-### [Introduction](#introduction)
-### [What is Used?](#what-is-used)
-### [Features](#features)
-### [Requirements](#requirements)
-### [Contributers](#contributers)
+### [1. Introduction](#introduction)
+### [2. What is Used?](#what-is-used)
+### [3. Features](#features)
+### [4. Requirements](#requirements)
+### [5. Contributers](#contributers)
 
 ## Introduction
 This is the web-based Restaurant Employee Management System. This software product is intended to help restaurant managers manage employee records. Admin is able to login and insert, retrieve, search, edit, and delete restaurant employees. It helps to reduce ammount of time and effort required to manage records manually on a paper-based system.
