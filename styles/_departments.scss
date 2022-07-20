@@ -61,9 +61,10 @@
         background-color: white;
         transition: 0.3s linear;
 
-        button {
+        span {
+            display: block;
             width: 90% !important;
-            margin: 12px 5% 0;
+            margin: 8px 5% 0;
             cursor: pointer;
             background-color: colors.$purple;
             border: none;

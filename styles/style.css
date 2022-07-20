@@ -299,9 +299,10 @@ header,
   background-color: white;
   transition: 0.3s linear;
 }
-.department-grid-item .overlay button {
+.department-grid-item .overlay span {
+  display: block;
   width: 90% !important;
-  margin: 12px 5% 0;
+  margin: 8px 5% 0;
   cursor: pointer;
   background-color: #38006b;
   border: none;
