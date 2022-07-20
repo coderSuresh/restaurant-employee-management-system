@@ -1,0 +1,68 @@
+@use 'flex';
+@use 'colors';
+
+.filter-row,
+.emp-form,
+.search {
+    @include flex.FlexBox(space-between, center);
+    margin: 10px 0px;
+}
+
+.form {
+
+    input[type=submit] {
+        cursor: pointer;
+    }
+
+    select,
+    input {
+        padding: 5px 7px;
+        font-size: 0.9rem;
+        border: 1px solid colors.$purple;
+        color: colors.$deepPurple;
+    }
+}
+
+.emp-form {
+    select,
+    input {
+margin-right: 10px;
+        &:focus,
+        &:active {
+            background-color: colors.$purple;
+            color: colors.$white;
+            outline: 1px solid colors.$deepPurple;
+        }
+    }
+
+    input {
+        background-color: colors.$purple;
+        color: colors.$white;
+    }
+
+}
+
+.search-form {
+    margin-left: 40px;
+    .search {
+        border: 1px solid colors.$purple;
+        width: fit-content;
+
+        button,
+        input {
+            border: none;
+            outline: none;
+        }
+
+        button {
+            cursor: pointer;
+            background-color: colors.$purple;
+            outline: 1px solid colors.$purple;
+
+            img {
+                padding: 5px;
+                height: 35px;
+            }
+        }
+    }
+}

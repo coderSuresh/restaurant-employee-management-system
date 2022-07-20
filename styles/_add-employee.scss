@@ -1,0 +1,42 @@
+@use 'flex';
+@use 'colors';
+
+.add-department {
+    input {
+        margin-top: 10px;
+        padding: 10px !important;
+        margin-bottom: 0px !important;
+    }
+}
+
+.add-form {
+    @include flex.FlexBox(center, flex-start);
+    flex-direction: column;
+    margin: 20px 40px;
+
+    input,
+    select {
+        padding: 5px 10px;
+        width: 60%;
+        margin-bottom: 20px;
+        max-width: 400px;
+        color: colors.$purple;
+        font-size: 1rem;
+
+        &:active,
+        &:focus {
+            outline: 2px solid colors.$lightPurple;
+        }
+
+        &:last-child {
+            margin-top: 20px;
+            background-color: colors.$lightPurple;
+            color: colors.$deepPurple;
+            text-transform: uppercase;
+            font-weight: bold;
+            letter-spacing: 1px;
+            border: 1px solid colors.$deepPurple;
+            cursor: pointer;
+        }
+    }
+}

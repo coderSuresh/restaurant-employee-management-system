@@ -1,0 +1,75 @@
+@use 'flex';
+@use 'colors';
+
+.grid-container {
+    padding: 2%;
+    @include flex.FlexBox(flex-start, flex-start);
+    flex-wrap: wrap;
+    gap: 20px;
+    min-height: auto !important;
+}
+
+.department-grid-item {
+    background-color: colors.$white;
+    color: colors.$deepPurple;
+    height: 150px;
+    width: 150px;
+    position: relative;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+
+    hr {
+        border: none;
+        height: 1px;
+        background-color: colors.$lightPurple;
+    }
+
+    h2 {
+        text-transform: uppercase;
+    }
+
+    .department-grid-employee-count {
+       
+        h2 {
+            font-size: 2.5rem;
+            color: colors.$purple;
+        }
+        p {
+            margin-left: 5px;
+            font-size: 1.2rem;
+            opacity: 0.9;
+        }
+    }
+
+    h2 {
+        color: colors.$deepPurple;
+    }
+
+    &:hover .overlay {
+        opacity: 1;
+    }
+
+    .overlay {
+        border-radius: 5px;
+        position: absolute;
+        width: 100%;
+        top: 0;
+        left: 0;
+        height: 100%;
+        opacity: 0;
+        background-color: white;
+        transition: 0.3s linear;
+
+        button {
+            width: 90% !important;
+            margin: 12px 5% 0;
+            cursor: pointer;
+            background-color: colors.$purple;
+            border: none;
+            padding: 7px;
+            color: colors.$white;
+        }
+    }
+
+}

@@ -1,0 +1,109 @@
+// ======for index page======
+@media (max-width: 1050px) {
+
+    // ======overflow scroll for all======
+    .table-container,
+    .filter-row,
+    header,
+    .grid-container {
+        overflow-x: scroll;
+    }
+}
+
+@media (max-width: 650px) {
+    .body {
+        padding: 7px !important;
+
+        header {
+            h1 {
+                font-size: 1.5rem;
+            }
+
+            .logout {
+                font-size: 1rem;
+            }
+        }
+
+        table {
+            font-size: 0.9rem;
+        }
+    }
+}
+
+// ======for login page======
+@media (max-width:960px) {
+    .login-main {
+        margin: 0 2% !important;
+    }
+
+    .left,
+    .right {
+        width: 50% !important;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-main {
+        flex-direction: column-reverse;
+    }
+
+    .left,
+    .right {
+        width: 90% !important;
+
+        form {
+            width: 90% !important;
+            margin: auto;
+        }
+    }
+
+    .right {
+        margin-top: 50px;
+
+        form {
+            width: fit-content;
+        }
+    }
+}
+
+@media (max-width: 600px) {
+
+    .right {
+        form {
+            width: 100% !important;
+        }
+    }
+}
+
+// ======add-employee======
+@media (max-width: 650px) {
+    .add-form {
+
+        input,
+        select {
+            width: 90% !important;
+        }
+    }
+}
+
+@media (max-width: 480px) {
+    .add-form {
+        margin: 0 !important;
+    }
+
+    // ======view departments======
+    .grid-container {
+        justify-content: center !important;
+    }
+}
+
+
+@media (max-width: 340px) {
+    .add-form {
+
+        input,
+        select {
+            width: 100% !important;
+        }
+    }
+}
