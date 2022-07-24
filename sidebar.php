@@ -1,4 +1,5 @@
-   <aside class="sidebar">
+  <?php @include "verification.php" ?> 
+  <aside class="sidebar">
             <div class="menu-container">
                 <div class="admin-info">
                     <img src="./images/profile.png" alt="admin profile image">
