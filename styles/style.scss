@@ -17,12 +17,13 @@
     font-family: 'Poppins', sans-serif;
 }
 
-h1, 
+h1,
 .logout p {
     color: colors.$purple;
 
-    a { 
+    a {
         color: colors.$purple;
+
         &:active {
             color: colors.$deepPurple;
         }
@@ -30,7 +31,7 @@ h1,
 }
 
 .sidebar.open {
-    width: 250px;
+    width: 260px;
     text-align: right;
 
     .admin-info {
@@ -43,6 +44,12 @@ h1,
     }
 
     .sidebar-items {
+        .items-container {
+            &:hover .tooltip-text {
+                display: none
+            }
+        }
+
         a {
             @include flex.FlexBox(center, center);
         }
@@ -111,6 +118,28 @@ h1,
         @include flex.FlexBox(space-between, flex-start);
         flex-direction: column;
         margin-top: 60px;
+
+        .items-container {
+            @include flex.FlexBox(space-between, center);
+            position: relative;
+
+            &:hover .tooltip-text {
+                display: inline-block;
+            }
+
+            .tooltip-text {
+                position: absolute;
+                left: 50px;
+                background-color: colors.$lightPurple;
+                color: colors.$deepPurple;
+                z-index: 1;
+                padding: 5px 10px;
+                border-radius: 5px;
+                text-align: left;
+                display: none;
+                width: max-content;
+            }
+        }
 
         a {
             margin-bottom: 5px;

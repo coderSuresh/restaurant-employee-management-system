@@ -333,7 +333,7 @@ h1 a:active,
 }
 
 .sidebar.open {
-  width: 250px;
+  width: 260px;
   text-align: right;
 }
 .sidebar.open .admin-info {
@@ -346,6 +346,9 @@ h1 a:active,
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 5px;
+}
+.sidebar.open .sidebar-items .items-container:hover .tooltip-text {
+  display: none;
 }
 .sidebar.open .sidebar-items a {
   display: flex;
@@ -407,6 +410,27 @@ h1 a:active,
   justify-content: space-between;
   flex-direction: column;
   margin-top: 60px;
+}
+.sidebar .sidebar-items .items-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: relative;
+}
+.sidebar .sidebar-items .items-container:hover .tooltip-text {
+  display: inline-block;
+}
+.sidebar .sidebar-items .items-container .tooltip-text {
+  position: absolute;
+  left: 50px;
+  background-color: #d0a4fa;
+  color: #220042;
+  z-index: 1;
+  padding: 5px 10px;
+  border-radius: 5px;
+  text-align: left;
+  display: none;
+  width: max-content;
 }
 .sidebar .sidebar-items a {
   margin-bottom: 5px;

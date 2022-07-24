@@ -32,10 +32,10 @@
                             <p>Employees</p>
                         </div>
                         <div class="overlay">
-                            <a href="./edit-department.html">
+                            <a href="./edit-department.php">
                                 <span>Edit</span>
                             </a>
-                            <a href="./employees.html">
+                            <a href="./employees.php">
                                 <span>View</span>
                             </a>
                             <a href="#">
@@ -52,10 +52,10 @@
                             <p>Employees</p>
                         </div>
                         <div class="overlay">
-                            <a href="./edit-department.html">
+                            <a href="./edit-department.php">
                                 <span>Edit</span>
                             </a>
-                            <a href="./employees.html">
+                            <a href="./employees.php">
                                 <span>View</span>
                             </a>
                             <a href="#">
