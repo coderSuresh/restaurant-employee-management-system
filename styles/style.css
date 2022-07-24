@@ -323,6 +323,10 @@ h1,
 .logout p {
   color: #38006b;
 }
+h1 a,
+.logout p a {
+  color: #38006b;
+}
 h1 a:active,
 .logout p a:active {
   color: #220042;

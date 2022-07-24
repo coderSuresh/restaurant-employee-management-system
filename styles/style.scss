@@ -17,11 +17,12 @@
     font-family: 'Poppins', sans-serif;
 }
 
-h1,
+h1, 
 .logout p {
     color: colors.$purple;
 
-    a {
+    a { 
+        color: colors.$purple;
         &:active {
             color: colors.$deepPurple;
         }
