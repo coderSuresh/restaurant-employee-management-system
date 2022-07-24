@@ -21,13 +21,8 @@
 
         <!-- ======main body start====== -->
         <div class="body">
-            <header>
-                <h1><a href="./index.html">Dashboard</a></h1>
-                <div class="logout">
-                    <img src="./images/log-out.svg" alt="log out" class="logout">
-                    <p>Log out</p>
-                </div>
-            </header>
+                <?php @include('header.php'); ?>
+        
             <div class="table-container">
                 <form action="#" method="post" class="add-form">
                     <label for="name">Name:</label>

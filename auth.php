@@ -17,7 +17,8 @@ if(isset($_POST['login'])){
               header("Location:index.php");
       }
       else {
-            header("Location:employees.php");
+            $_SESSION['success'] = "login success";
+            header("Location:employees.php");            
       }           
     }
 }
