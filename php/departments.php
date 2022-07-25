@@ -9,8 +9,8 @@
     <meta name="description"
         content="Restaurant employee management system admin dashboard to store and manage employee records">
     <title>Departments</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <script src="./js/app.js" defer></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../js/app.js" defer></script>
 </head>
 
 <body>

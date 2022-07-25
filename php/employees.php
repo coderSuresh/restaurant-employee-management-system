@@ -9,8 +9,8 @@
     <meta name="description"
         content="Restaurant employee management system admin dashboard to store and manage employee records">
     <title>Employees Record</title>
-    <link rel="stylesheet" href="./styles/style.css">
-    <script src="./js/app.js" defer></script>
+    <link rel="stylesheet" href="../styles/style.css">
+    <script src="../js/app.js" defer></script>
 </head>
 
 <body>
@@ -52,7 +52,7 @@
                     <div class="search">
                         <input type="text" name="search" placeholder="Search...">
                         <button type="submit" name="search-icon">
-                            <img src="./images/search.svg" alt="search">
+                            <img src="../images/search.svg" alt="search">
                         </button>
                     </div>
                 </form>
@@ -81,9 +81,9 @@
                         <!-- *****action menu start***** -->
                         <td class="action">
                             <div class="action-menu">
-                                <img src="./images/options.svg" alt="action menu">
+                                <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <span class="edit"><a href="./edit-employee.html">Edit</a></span>
+                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
                                     <span class="delete"><a href="#">Delete</a></span>
                                 </div>
                             </div>
@@ -100,9 +100,9 @@
                         <!-- *****action menu start***** -->
                         <td class="action">
                             <div class="action-menu">
-                                <img src="./images/options.svg" alt="action menu">
+                                <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <span class="edit"><a href="./edit-employee.html">Edit</a></span>
+                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
                                     <span class="delete"><a href="#">Delete</a></span>
                                 </div>
                             </div>
@@ -119,9 +119,9 @@
                         <!-- *****action menu start***** -->
                         <td class="action">
                             <div class="action-menu">
-                                <img src="./images/options.svg" alt="action menu">
+                                <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <span class="edit"><a href="./edit-employee.html">Edit</a></span>
+                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
                                     <span class="delete"><a href="#">Delete</a></span>
                                 </div>
                             </div>
@@ -138,9 +138,9 @@
                         <!-- *****action menu start***** -->
                         <td class="action">
                             <div class="action-menu">
-                                <img src="./images/options.svg" alt="action menu">
+                                <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <span class="edit"><a href="./edit-employee.html">Edit</a></span>
+                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
                                     <span class="delete"><a href="#">Delete</a></span>
                                 </div>
                             </div>
@@ -157,9 +157,9 @@
                         <!-- *****action menu start***** -->
                         <td class="action">
                             <div class="action-menu">
-                                <img src="./images/options.svg" alt="action menu">
+                                <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <span class="edit"><a href="./edit-employee.html">Edit</a></span>
+                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
                                     <span class="delete"><a href="#">Delete</a></span>
                                 </div>
                             </div>

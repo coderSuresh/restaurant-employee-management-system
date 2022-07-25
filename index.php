@@ -35,7 +35,7 @@ session_start();
                     echo $_SESSION['password'];
                 ?> 
              </p>            
-            <form action="auth.php" method="post" class="">
+            <form action="./php/auth.php" method="post" class="">
                 <div>
                     <input type="text" name="username" id="username" placeholder="Jane Doe" required>
                     <img src="./images/login-account.svg" alt="account icon">
