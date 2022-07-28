@@ -69,6 +69,7 @@ h1,
     position: fixed;
     left: 0;
     top: 0;
+    z-index: 10;
     min-height: 100vh;
     text-align: center;
     padding: 20px 10px;
@@ -78,8 +79,8 @@ h1,
         display: none;
 
         img {
-            height: 50px;
-            width: 50px;
+            height: 40px;
+            width: 40px;
         }
 
         color: colors.$white;
@@ -101,8 +102,8 @@ h1,
 
     img {
         cursor: pointer;
-        height: 30px;
-        width: 30px;
+        height: 25px;
+        width: 25px;
         margin-right: 10px;
     }
 
@@ -117,14 +118,14 @@ h1,
     .sidebar-items {
         @include flex.FlexBox(space-between, flex-start);
         flex-direction: column;
-        margin-top: 60px;
+        margin-top: 40px;
 
         .items-container {
             @include flex.FlexBox(space-between, center);
             position: relative;
 
             &:hover .tooltip-text {
-                display: inline-block;
+                display: block;
             }
 
             .tooltip-text {
@@ -132,7 +133,6 @@ h1,
                 left: 50px;
                 background-color: colors.$lightPurple;
                 color: colors.$deepPurple;
-                z-index: 1;
                 padding: 5px 10px;
                 border-radius: 5px;
                 text-align: left;
@@ -151,14 +151,14 @@ h1,
         }
 
         .bold-hr {
-            margin: 25px 0;
+            margin: 15px 0;
             height: 3px;
         }
     }
 }
 
 .body.open {
-    margin-left: 250px;
+    margin-left: 260px;
 }
 
 .body {

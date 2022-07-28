@@ -2,10 +2,55 @@
 @use 'colors';
 
 .filter-row,
-.emp-form,
 .search {
     @include flex.FlexBox(space-between, center);
     margin: 10px 0px;
+}
+
+// ======filter======
+.filter-drop-menu {
+    position: relative;
+    p {
+        border: 1px solid colors.$deepPurple;
+    }
+
+    p, a {
+        padding: 5px 10px;
+        cursor: pointer;
+    }
+
+    &:hover .filter-drop-menu-content {
+        display: block;
+    }
+
+    .filter-drop-menu-content {
+        display: none;
+        position: absolute;
+        top: 38px;
+        background-color: colors.$deepPurple;
+
+        * {
+            color: colors.$white;
+            margin-bottom: 10px;
+        }
+    }
+
+    .filter-drop-sub-menu {
+        position: relative;
+        &:hover .filter-drop-sub-menu-content {
+            display: block;
+        }
+
+        .filter-drop-sub-menu-content {
+            display: none;
+            position: absolute;
+            top: 0;
+            left: 101%;
+            width: 100%;
+            padding: 20px 10px;
+            background-color: colors.$deepPurple;
+        }
+    }
 }
 
 .form {
@@ -24,9 +69,11 @@
 }
 
 .emp-form {
+
     select,
     input {
-margin-right: 10px;
+        margin-right: 10px;
+
         &:focus,
         &:active {
             background-color: colors.$purple;
@@ -44,6 +91,7 @@ margin-right: 10px;
 
 .search-form {
     margin-left: 40px;
+
     .search {
         border: 1px solid colors.$purple;
         width: fit-content;

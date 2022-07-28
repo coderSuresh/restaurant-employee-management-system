@@ -39,6 +39,15 @@
                     <option value="kitchen">Kitchen</option>
                     <option value="kitchen">Kitchen</option>
                    </select>
+                    <label for="department">Position:</label>
+                   <select name="position" id="position">
+                    <option value="kitchen">Kitchen</option>
+                    <option value="kitchen">Kitchen</option>
+                    <option value="kitchen">Kitchen</option>
+                    <option value="kitchen">Kitchen</option>
+                    <option value="kitchen">Kitchen</option>
+                    <option value="kitchen">Kitchen</option>
+                   </select>
                     <label for="salary">Salary:</label>
                     <input type="text" name="salary" id="salary">
 

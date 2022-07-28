@@ -25,26 +25,31 @@
 
             <div class="filter-row">
                 <!-- ======filter section start====== -->
-                <form action="#" method="post" class="form emp-form">
-                    <select name="department-dropdown" id="department-dropdown">
-                        <option id="department" value="Department" selected>Department</option>
-                        <option id="kitchen" value="Kitchen">Kitchen</option>
-                        <option id="cleaning" value="Cleaning">Cleaning</option>
-                        <option id="delivery" value="Delivery">Delivery</option>
-                        <option id="bar" value="bar">Bar</option>
-                        <option id="managerial" value="Managerial">Managerial</option>
-                    </select>
-                    <select name="position-dropdown" id="position-dropdown">
-                        <option id="position" value="position" selected>Position</option>
-                        <option id="kitchen_sub" value="Kitchen">Kitchen</option>
-                        <option id="cleaning_sub" value="Cleaning">Cleaning</option>
-                        <option id="delivery_sub" value="Delivery">Delivery</option>
-                        <option id="bar_sub" value="bar">Bar</option>
-                        <option id="managerial_sub" value="Managerial">Managerial</option>
-                    </select>
-
-                    <input type="submit" name="Search" id="emp-filter" value="Filter">
-                </form>
+                <div class="filter-drop-menu">
+                    <p>Departments</p>
+                    <div class="filter-drop-menu-content">
+                        <ul>
+                        <li><a href="#">Test</a></li>
+                        <li>
+                            <div class="filter-drop-sub-menu">
+                                <p>test with sub test</p>
+                               <div class="filter-drop-sub-menu-content">
+                                 <ul>
+                                    <li><a href="#">sub test 1</a></li>
+                                    <li><a href="#">sub test 2</a></li>
+                                    <li><a href="#">sub test 3</a></li>
+                                    <li><a href="#">sub test 4</a></li>
+                                    <li><a href="#">sub test 5</a></li>
+                                </ul>
+                               </div>
+                            </div>
+                        </li>
+                        <li><a href="#">Test</a></li>
+                        <li><a href="#">Test</a></li>
+                        <li><a href="#">Test</a></li>
+                    </ul>
+                    </div>
+                </div>
                 <!-- ======filter section end====== -->
 
                 <!-- ======search start -->

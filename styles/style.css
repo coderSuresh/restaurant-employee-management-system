@@ -149,12 +149,50 @@ header,
 }
 
 .filter-row,
-.emp-form,
 .search {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin: 10px 0px;
+}
+
+.filter-drop-menu {
+  position: relative;
+}
+.filter-drop-menu p {
+  border: 1px solid #220042;
+}
+.filter-drop-menu p, .filter-drop-menu a {
+  padding: 5px 10px;
+  cursor: pointer;
+}
+.filter-drop-menu:hover .filter-drop-menu-content {
+  display: block;
+}
+.filter-drop-menu .filter-drop-menu-content {
+  display: none;
+  position: absolute;
+  top: 38px;
+  background-color: #220042;
+}
+.filter-drop-menu .filter-drop-menu-content * {
+  color: #fff;
+  margin-bottom: 10px;
+}
+.filter-drop-menu .filter-drop-sub-menu {
+  position: relative;
+}
+.filter-drop-menu .filter-drop-sub-menu:hover .filter-drop-sub-menu-content {
+  display: block;
+}
+.filter-drop-menu .filter-drop-sub-menu .filter-drop-sub-menu-content {
+  display: none;
+  position: absolute;
+  top: 0;
+  left: 101%;
+  width: 100%;
+  padding: 20px 10px;
+  background-color: #220042;
 }
 
 .form input[type=submit] {
@@ -367,6 +405,7 @@ h1 a:active,
   position: fixed;
   left: 0;
   top: 0;
+  z-index: 10;
   min-height: 100vh;
   text-align: center;
   padding: 20px 10px;
@@ -377,8 +416,8 @@ h1 a:active,
   color: #fff;
 }
 .sidebar .admin-info img {
-  height: 50px;
-  width: 50px;
+  height: 40px;
+  width: 40px;
 }
 .sidebar .admin-info div {
   text-align: left;
@@ -393,8 +432,8 @@ h1 a:active,
 }
 .sidebar img {
   cursor: pointer;
-  height: 30px;
-  width: 30px;
+  height: 25px;
+  width: 25px;
   margin-right: 10px;
 }
 .sidebar .sidebar-hr {
@@ -409,7 +448,7 @@ h1 a:active,
   align-items: flex-start;
   justify-content: space-between;
   flex-direction: column;
-  margin-top: 60px;
+  margin-top: 40px;
 }
 .sidebar .sidebar-items .items-container {
   display: flex;
@@ -418,14 +457,13 @@ h1 a:active,
   position: relative;
 }
 .sidebar .sidebar-items .items-container:hover .tooltip-text {
-  display: inline-block;
+  display: block;
 }
 .sidebar .sidebar-items .items-container .tooltip-text {
   position: absolute;
   left: 50px;
   background-color: #d0a4fa;
   color: #220042;
-  z-index: 1;
   padding: 5px 10px;
   border-radius: 5px;
   text-align: left;
@@ -440,12 +478,12 @@ h1 a:active,
   font-size: 0;
 }
 .sidebar .sidebar-items .bold-hr {
-  margin: 25px 0;
+  margin: 15px 0;
   height: 3px;
 }
 
 .body.open {
-  margin-left: 250px;
+  margin-left: 260px;
 }
 
 .body {

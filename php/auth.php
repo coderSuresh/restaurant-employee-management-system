@@ -10,11 +10,11 @@ if(isset($_POST['login'])){
     while ($data = mysqli_fetch_array($result)) {
       if ($username !=  $data['username']){
             $_SESSION['username'] = "Invalid Username";
-              header("Location:index.php");
+              header("Location:../index.php");
       }
       elseif ($password != $data['password']){
             $_SESSION['password'] = "Invalid password";
-              header("Location:index.php");
+              header("Location:../index.php");
       }
       else {
             $_SESSION['success'] = "login success";
@@ -23,6 +23,6 @@ if(isset($_POST['login'])){
     }
 }
  else {
-            header("Location:index.php");
+            header("Location:../index.php");
       }
 ?>
