@@ -1,3 +1,7 @@
+<?php 
+session_start();
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,13 +27,23 @@
         <div class="body">
                <?php @include('header.php'); ?>
             <div class="table-container">
-                <form action="#" method="post" class="add-form add-department">
+                <form action="insert-department.php" method="post" class="add-form add-department">
                     <label for="name">Department Name:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" required>
 
                     <input type="submit" value="Add Department" name="add-department">
-
+                    
                 </form>
+                   <p>
+                        <?php
+                            if (isset($_SESSION['deptartment-insert'])) {
+                              echo $_SESSION['deptartment-insert'];
+                              
+                            }
+                             
+                        ?>
+                        
+                    </p>
             </div>
         </div>
         <!-- ======main body end====== -->
@@ -37,3 +51,6 @@
 </body>
 
 </html>
+<?php
+unset($_SESSION['deptartment-insert']); 
+?>

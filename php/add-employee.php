@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,7 +26,7 @@
         <div class="body">
                 <?php @include('header.php'); ?>
             <div class="table-container">
-                <form action="#" method="post" class="add-form">
+                <form action="insert-employee.php" method="post" class="add-form">
                     <label for="name">Name:</label>
                     <input type="text" name="name" id="name">
                     <label for="address">Address:</label>
@@ -32,26 +35,40 @@
                     <input type="tel" name="phone" id="tel">
                     <label for="department">Department:</label>
                    <select name="department" id="department">
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
+                       <?php
+                       include('config.php');
+                       $sql = "SELECT dept_name FROM department";
+                       $res = mysqli_query($conn, $sql);
+                       while ($data=mysqli_fetch_array($res)) {?>
+                        <option value="<?php echo $data['dept_name'];?>"><?php echo $data['dept_name'];?></option>
+                      <?php }
+                       ?>   
                    </select>
-                    <label for="department">Position:</label>
+                    <label for="position">Position:</label>
                    <select name="position" id="position">
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
+                        <?php
+                       include('config.php');
+                       $sql = "SELECT p_name FROM position";
+                       $res = mysqli_query($conn, $sql);
+                       while ($data=mysqli_fetch_array($res)) {?>
+                        <option value="<?php echo $data['p_name'];?>"><?php echo $data['p_name'];?></option>
+                      <?php }
+                       ?>   
                    </select>
 
                     <input type="submit" value="Add Employee" name="add-employee">
 
                 </form>
+                    <p>
+                        <?php
+                            if (isset($_SESSION['employee-insert'])) {
+                              echo $_SESSION['employee-insert'];
+                              
+                            }
+                             
+                        ?>
+                        
+                    </p>
             </div>
         </div>
         <!-- ======main body end====== -->
@@ -59,3 +76,6 @@
 </body>
 
 </html>
+<?php
+unset($_SESSION['employee-insert']); 
+?>

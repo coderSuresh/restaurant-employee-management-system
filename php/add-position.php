@@ -1,3 +1,6 @@
+<?php 
+session_start();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -23,15 +26,17 @@
         <div class="body">
                <?php @include('header.php'); ?>
             <div class="table-container">
-                <form action="#" method="post" class="add-form">
+                <form action="insert-position.php" method="post" class="add-form">
                     <label for="name">Department:</label>
                     <select name="department" id="department">
-                        <option value="kitchen">Kitchen</option>
-                        <option value="kitchen">Kitchen</option>
-                        <option value="kitchen">Kitchen</option>
-                        <option value="kitchen">Kitchen</option>
-                        <option value="kitchen">Kitchen</option>
-                        <option value="kitchen">Kitchen</option>
+                       <?php
+                       include('config.php');
+                       $sql = "SELECT dept_name FROM department";
+                       $res = mysqli_query($conn, $sql);
+                       while ($data=mysqli_fetch_array($res)) {?>
+                        <option value="<?php echo $data['dept_name'];?>"><?php echo $data['dept_name'];?></option>
+                      <?php }
+                       ?>                      
                     </select>
 
                     <label for="name">Position Name:</label>
@@ -43,6 +48,16 @@
                     <input type="submit" value="Add Position" name="add-position">
 
                 </form>
+                   <p>
+                        <?php
+                            if (isset($_SESSION['position-insert'])) {
+                              echo $_SESSION['position-insert'];
+                              
+                            }
+                             
+                        ?>
+                        
+                    </p>
             </div>
         </div>
         <!-- ======main body end====== -->
@@ -50,3 +65,6 @@
 </body>
 
 </html>
+<?php
+unset($_SESSION['position-insert']); 
+?>

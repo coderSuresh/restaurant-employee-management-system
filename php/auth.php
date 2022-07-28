@@ -5,7 +5,7 @@ if(isset($_POST['login'])){
     $username = mysqli_real_escape_string($conn,$_POST['username']);
     $password = md5(mysqli_real_escape_string($conn,$_POST['password']));
     
-    $sql = "SELECT * FROM admin";
+    $sql = "SELECT * from admin";
     $result = mysqli_query($conn,$sql);//To  execute query.
     while ($data = mysqli_fetch_array($result)) {
       if ($username !=  $data['username']){
@@ -15,6 +15,7 @@ if(isset($_POST['login'])){
       elseif ($password != $data['password']){
             $_SESSION['password'] = "Invalid password";
               header("Location:../index.php");
+              
       }
       else {
             $_SESSION['success'] = "login success";
