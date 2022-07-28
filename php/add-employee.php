@@ -48,8 +48,6 @@
                     <option value="kitchen">Kitchen</option>
                     <option value="kitchen">Kitchen</option>
                    </select>
-                    <label for="salary">Salary:</label>
-                    <input type="text" name="salary" id="salary">
 
                     <input type="submit" value="Add Employee" name="add-employee">
 

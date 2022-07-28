@@ -88,7 +88,7 @@
                             <div class="action-menu">
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
+                                    <span class="edit"><a href="./edit-employee.php">Edit</a></span>
                                     <span class="delete"><a href="#">Delete</a></span>
                                 </div>
                             </div>

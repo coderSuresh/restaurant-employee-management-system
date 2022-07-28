@@ -35,7 +35,10 @@
                     </select>
 
                     <label for="name">Position Name:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name"> 
+                    
+                    <label for="name">Salary:</label>
+                    <input type="text" name="salary" id="salary">
 
                     <input type="submit" value="Add Position" name="add-position">
 

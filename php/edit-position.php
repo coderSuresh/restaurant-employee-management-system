@@ -8,7 +8,7 @@
     <meta name="author" content="Suresh Dahal, Parash Kumar Bhandari">
     <meta name="description"
         content="Restaurant employee management system admin dashboard to store and manage employee records">
-    <title>Edit Employee</title>
+    <title>Edit Position</title>
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../js/app.js" defer></script>
 </head>
@@ -16,22 +16,15 @@
 <body>
     <main>
         <!-- ======siderbar start====== -->
-         <?php @include('sidebar.php'); ?>
+      <?php @include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-                <?php @include('header.php'); ?>
-        
+               <?php @include('header.php'); ?>
             <div class="table-container">
                 <form action="#" method="post" class="add-form">
-                    <label for="name">Name:</label>
-                    <input type="text" name="name" id="name">
-                    <label for="address">Address:</label>
-                    <input type="text" name="address" id="address">
-                    <label for="tel">Phone:</label>
-                    <input type="tel" name="phone" id="tel">
-                    <label for="department">Department:</label>
+                    <label for="name">Department:</label>
                     <select name="department" id="department">
                         <option value="kitchen">Kitchen</option>
                         <option value="kitchen">Kitchen</option>
@@ -40,17 +33,14 @@
                         <option value="kitchen">Kitchen</option>
                         <option value="kitchen">Kitchen</option>
                     </select>
-                    <label for="department">Position:</label>
-                   <select name="position" id="position">
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                    <option value="kitchen">Kitchen</option>
-                   </select>
 
-                    <input type="submit" value="Edit Employee" name="edit-employee">
+                    <label for="name">Position Name:</label>
+                    <input type="text" name="name" id="name"> 
+                    
+                    <label for="name">Salary:</label>
+                    <input type="text" name="salary" id="salary">
+
+                    <input type="submit" value="Edit Position" name="edit-position">
 
                 </form>
             </div>
