@@ -28,11 +28,11 @@ session_start();
             <div class="table-container">
                 <form action="insert-employee.php" method="post" class="add-form">
                     <label for="name">Name:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="name" id="name" required>
                     <label for="address">Address:</label>
-                    <input type="text" name="address" id="address">
+                    <input type="text" name="address" id="address" required>
                     <label for="tel">Phone:</label>
-                    <input type="tel" name="phone" id="tel">
+                    <input type="tel" name="phone" id="tel" required>
                     <label for="department">Department:</label>
                    <select name="department" id="department">
                        <?php
