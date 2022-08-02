@@ -27,19 +27,6 @@ if (isset($_POST['add-employee']))
     $row = mysqli_fetch_assoc($result5);
     $pos_id = $row['p_id'];
 
-    // echo "<br>";
-    // echo $addr_id ."<br>";
-    
-    // echo $phone_id;
-    //     echo "<br>";
-    // echo "<br>";   
-    // echo "<br>";
-    // echo $dept_id ."<br>";
-    
-    // echo $pos_id;
-    //     echo "<br>";
-    // echo "<br>";
-
     $emp_name =mysqli_real_escape_string($conn, $_POST['name']); 
     $sql = "INSERT INTO employee values(default,'$emp_name','.$phone_id.','.$addr_id.',$dept_id,$pos_id)";     
 
