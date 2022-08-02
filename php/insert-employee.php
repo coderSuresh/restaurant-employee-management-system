@@ -38,8 +38,7 @@ else
 {
    header("Location:add-employee.php");
 }
-
-// ?>
+?>
 // $query1= "INSERT INTO employee ( username, email,...)
 //             VALUES ('".$_POST["username"]."', ...)";
 //         if($result1 = mysql_query($query1))
