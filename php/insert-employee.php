@@ -20,45 +20,31 @@ if (isset($_POST['add-employee']))
     
 
     $pos_name = mysqli_real_escape_string($conn, $_POST['position']);
-    $sql4 = "select p_id from position where p_name='$pos_name'";//kun deparment ko id
+    $sql4 = "select p_id from position where p_name='$pos_name'";//kun position ko id
     $result5 = mysqli_query($conn,$sql4) or die("Error:Could not connect");  
     $row = mysqli_fetch_assoc($result5);
     $pos_id = $row['p_id'];
 
+    $addr_id= mysqli_insert_id($conn);//Get Id from Database
+    $phone_id= mysqli_insert_id($conn);
+    $emp_name =mysqli_real_escape_string($conn, $_POST['name']); 
+    $sql = "INSERT INTO employee values(default,'$emp_name','".$phone_id."','".$addr_id."',$dept_id,$pos_id)";     
 
-    if($result2&&$result3&&$result4&&$result5)
+    $result1 = mysqli_query($conn,$sql) or die("Error:Could not connect");
+
+    if($result1&&$result2&&$result3&&$result4&&$result5)
     {
         $_SESSION['employee-insert'] = "Inserted succesfully";
-       //  header("Location:add-employee.php");       
-         $addr_id= mysqli_insert_id($conn);//Get Id from Database
-         $phone_id= mysqli_insert_id($conn);
-         $emp_name =mysqli_real_escape_string($conn, $_POST['name']); 
-         $sql = "INSERT INTO employee(emp_id,emp_name,ct_id,addr_id,dept_id,p_id) values(default,'$emp_name','".$phone_id."','".$addr_id."',$dept_id,$pos_id)";     
-         echo $pos_id;
-         echo $dept_id;    
-         $result1 = mysqli_query($conn,$sql) or die("Error:Could not connect");
+        header("Location:add-employee.php");       
+         
     }
     else{
-        echo "Result fail";
+        echo "Failed";
     }
 
 }
 else
 {
-   //header("Location:add-employee.php");
+   header("Location:add-employee.php");
 }
 ?>
-// $query1= "INSERT INTO employee ( username, email,...)
-//             VALUES ('".$_POST["username"]."', ...)";
-//         if($result1 = mysql_query($query1))
-//         {
-//             $emp_id = mysql_insert_id(); // last created id by above query
-
-//             $query2= "INSERT INTO dept ( emp_id, dept_name, ...)
-//             VALUES ('".$emp_id."', '".$_POST["dept_name"]."',...)";
-
-//             if($result2 = mysql_query($query2))
-//             {
-//                 //success msg
-//             }
-//         }
