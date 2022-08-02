@@ -2,8 +2,7 @@
 session_start();
 @include('config.php');
 if (isset($_POST['add-employee']))
-{      
-    
+{         
     $emp_address=mysqli_real_escape_string($conn, $_POST['address']);
     $sql1 = "INSERT INTO address values(default,'$emp_address')";
     $result2 = mysqli_query($conn,$sql1) or die("Error:Could not connect");
@@ -19,7 +18,6 @@ if (isset($_POST['add-employee']))
     $result4 = mysqli_query($conn,$sql3) or die("Error:Could not connect");  
     $row = mysqli_fetch_assoc($result4);
     $dept_id = $row['dept_id'];
-    
 
     $pos_name = mysqli_real_escape_string($conn, $_POST['position']);
     $sql4 = "select p_id from position where p_name='$pos_name'";//kun position ko id
@@ -27,7 +25,7 @@ if (isset($_POST['add-employee']))
     $row = mysqli_fetch_assoc($result5);
     $pos_id = $row['p_id'];
 
-    $emp_name =mysqli_real_escape_string($conn, $_POST['name']); 
+    $emp_name = mysqli_real_escape_string($conn, $_POST['name']); 
     $sql = "INSERT INTO employee values(default,'$emp_name','.$phone_id.','.$addr_id.',$dept_id,$pos_id)";     
 
     $result1 = mysqli_query($conn,$sql) or die(mysqli_error($conn));
@@ -36,12 +34,10 @@ if (isset($_POST['add-employee']))
     {
         $_SESSION['employee-insert'] = "Inserted succesfully";
         header("Location:add-employee.php");       
-         
     }
     else{
         echo "Failed";
     }
-
 }
 else
 {

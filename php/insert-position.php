@@ -11,8 +11,19 @@ if (isset($_POST['add-position']))
     {
         $dept = $_POST['department'];
     }
-    $sql = "INSERT INTO position values(default,'$pos_name')";
+    $sql_dept_id = "select dept_id from department where dept_name = '$dept'";
+    $res_dept_id = mysqli_query($conn, $sql_dept_id) or die(mysqli_error($conn));
+    $row = mysqli_fetch_assoc($res_dept_id);
+
+    $dept_id = $row['dept_id'];
+
+    $sql_sal = "insert into salary values(default, $salary)";
+    $res_sal = mysqli_query($conn, $sql_sal) or die (mysqli_error($conn));
+    $sal_id= mysqli_insert_id($conn);
+
+    $sql = "INSERT INTO position values(default,'$pos_name', '.$sal_id.', $dept_id)";
     $result = mysqli_query($conn,$sql);
+
     if($result)
     {
         $_SESSION['position-insert'] = "Inserted succesfully";

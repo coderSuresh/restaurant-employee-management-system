@@ -71,18 +71,40 @@
                         <th>SN</th>
                         <th>Employee Name</th>
                         <th>Department</th>
+                        <th>Position</th>
                         <th>Salary</th>
                         <th>Address</th>
                         <th>Phone</th>
                         <th>Action</th>
                     </tr>
+
+                    <?php
+                        include("config.php");
+                        $sql = "select employee.emp_name, 
+                                department.dept_name, 
+                                position.p_name, 
+                                salary.salary, 
+                                address.addr_name, 
+                                contact.ct_number
+                                from employee
+                                INNER JOIN department on employee.dept_id = department.dept_id
+                                INNER JOIN position on employee.p_id = position.p_id
+                                INNER JOIN salary on position.sal_id = salary.sal_id
+                                INNER JOIN address on employee.addr_id = address.addr_id
+                                INNER JOIN contact on employee.ct_id = contact.ct_id";
+                        $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+                        $i = 1;
+                        while($row = mysqli_fetch_assoc($res)) {
+                    ?>
                     <tr>
-                        <td>1</td>
-                        <td><a href="#" class="emp-name">Test Name</a></td>
-                        <td>Test Depart</td>
-                        <td>13254</td>
-                        <td>Test Addr</td>
-                        <td>9856521457</td>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $row['emp_name']; ?></td>
+                        <td><?php echo $row['dept_name'];?></td>
+                        <td><?php echo $row['p_name'];?></td>
+                        <td><?php echo $row['salary'];?></td>
+                        <td><?php echo $row['addr_name'];?></td>
+                        <td><?php echo $row['ct_number'];?></td>
                         <!-- *****action menu start***** -->
                         <td class="action">
                             <div class="action-menu">
@@ -95,82 +117,10 @@
                         </td>
                         <!-- *****action menu end***** -->
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Test Name</td>
-                        <td>Test Depart</td>
-                        <td>13254</td>
-                        <td>Test Addr</td>
-                        <td>9856521457</td>
-                        <!-- *****action menu start***** -->
-                        <td class="action">
-                            <div class="action-menu">
-                                <img src="../images/options.svg" alt="action menu">
-                                <div class="action-menu-items">
-                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
-                                    <span class="delete"><a href="#">Delete</a></span>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- *****action menu end***** -->
-                    </tr>
-                    <tr>
-                        <td>3</td>
-                        <td>Test Name</td>
-                        <td>Test Depart</td>
-                        <td>13254</td>
-                        <td>Test Addr</td>
-                        <td>9856521457</td>
-                        <!-- *****action menu start***** -->
-                        <td class="action">
-                            <div class="action-menu">
-                                <img src="../images/options.svg" alt="action menu">
-                                <div class="action-menu-items">
-                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
-                                    <span class="delete"><a href="#">Delete</a></span>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- *****action menu end***** -->
-                    </tr>
-                    <tr>
-                        <td>4</td>
-                        <td>Test Name</td>
-                        <td>Test Depart</td>
-                        <td>13254</td>
-                        <td>Test Addr</td>
-                        <td>9856521457</td>
-                        <!-- *****action menu start***** -->
-                        <td class="action">
-                            <div class="action-menu">
-                                <img src="../images/options.svg" alt="action menu">
-                                <div class="action-menu-items">
-                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
-                                    <span class="delete"><a href="#">Delete</a></span>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- *****action menu end***** -->
-                    </tr>
-                    <tr>
-                        <td>5</td>
-                        <td>Test Name</td>
-                        <td>Test Depart</td>
-                        <td>13254</td>
-                        <td>Test Addr</td>
-                        <td>9856521457</td>
-                        <!-- *****action menu start***** -->
-                        <td class="action">
-                            <div class="action-menu">
-                                <img src="../images/options.svg" alt="action menu">
-                                <div class="action-menu-items">
-                                    <span class="edit"><a href="../edit-employee.html">Edit</a></span>
-                                    <span class="delete"><a href="#">Delete</a></span>
-                                </div>
-                            </div>
-                        </td>
-                        <!-- *****action menu end***** -->
-                    </tr>
+                    <?php
+                        $i++;
+                        }
+                    ?>
                 </table>
                 <!--======table ends======-->
             </div>
