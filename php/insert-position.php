@@ -5,8 +5,7 @@ if (isset($_POST['add-position']))
 {   
     $pos_name=mysqli_real_escape_string($conn, $_POST['name']);
     $salary = mysqli_real_escape_string($conn, $_POST['salary']);    
-    $sql1 = "INSERT INTO salary values(default,$salary)";
-    $result = mysqli_query($conn,$sql1) or die("Error:Could not connect");
+    
     if(!empty($_POST['department']))
     {
         $dept = $_POST['department'];

@@ -91,7 +91,8 @@
                                 INNER JOIN position on employee.p_id = position.p_id
                                 INNER JOIN salary on position.sal_id = salary.sal_id
                                 INNER JOIN address on employee.addr_id = address.addr_id
-                                INNER JOIN contact on employee.ct_id = contact.ct_id";
+                                INNER JOIN contact on employee.ct_id = contact.ct_id
+                                ORDER BY emp_id DESC";
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
                         $i = 1;

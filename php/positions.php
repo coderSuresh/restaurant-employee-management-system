@@ -23,47 +23,6 @@
         <div class="body">
                 <?php @include('header.php'); ?>
 
-            <div class="filter-row">
-                <!-- ======filter section start====== -->
-                <!-- <div class="filter-drop-menu">
-                    <p>Departments</p>
-                    <div class="filter-drop-menu-content">
-                        <ul>
-                        <li><a href="#">Test</a></li>
-                        <li>
-                            <div class="filter-drop-sub-menu">
-                                <p>test with sub test</p>
-                               <div class="filter-drop-sub-menu-content">
-                                 <ul>
-                                    <li><a href="#">sub test 1</a></li>
-                                    <li><a href="#">sub test 2</a></li>
-                                    <li><a href="#">sub test 3</a></li>
-                                    <li><a href="#">sub test 4</a></li>
-                                    <li><a href="#">sub test 5</a></li>
-                                </ul>
-                               </div>
-                            </div>
-                        </li>
-                        <li><a href="#">Test</a></li>
-                        <li><a href="#">Test</a></li>
-                        <li><a href="#">Test</a></li>
-                    </ul>
-                    </div>
-                </div> -->
-                <!-- ======filter section end====== -->
-
-                <!-- ======search start -->
-                <!-- <form action="#" method="post" class="form search-form">
-                    <div class="search">
-                        <input type="text" name="search" placeholder="Search...">
-                        <button type="submit" name="search-icon">
-                            <img src="../images/search.svg" alt="search">
-                        </button>
-                    </div>
-                </form> -->
-                <!-- ======search end====== -->
-            </div>
-
             <div class="table-container">
                 <!--======table starts======-->
                 <table>
@@ -75,12 +34,37 @@
                         <th>Total Employees</th>
                         <th>Action</th>
                     </tr>
+
+                    <?php
+                        include("config.php");
+                        $sql = "SELECT salary.salary, 
+                                position.p_name, 
+                                department.dept_name
+                                from position
+                                inner join salary on position.sal_id = salary.sal_id
+                                inner join department on position.dept_id = department.dept_id";
+                        $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+                        $i = 1;
+                        while($row = mysqli_fetch_assoc($res)) {
+                    ?>
+
                     <tr>
-                        <td>1</td>
-                        <td>Test Position</td>
-                        <td>Test Depart</td>
-                        <td>13254</td>
-                        <td>69</td>
+                        <td><?php echo $i; ?></td>
+                        <td><?php echo $row['p_name'];?></td>
+                        <td><?php echo $row['dept_name'];?></td>
+                        <td><?php echo $row['salary'];?></td>
+                        <td>
+
+                            <?php
+                                $pos_name = $row['p_name'];
+                                $sql_emp_no = "SELECT COUNT(employee.emp_name) as total FROM position INNER JOIN employee on position.p_id = employee.p_id where position.p_name = '$pos_name'";
+                                $result = mysqli_query($conn, $sql_emp_no) or die(mysqli_error($conn));
+                                $row = mysqli_fetch_assoc($result);
+                                echo $row['total'];
+                            ?>
+
+                        </td>
                         <!-- *****action menu start***** -->
                         <td class="action">
                             <div class="action-menu">
@@ -93,6 +77,11 @@
                         </td>
                         <!-- *****action menu end***** -->
                     </tr>
+
+                    <?php
+                        $i++;
+                        }
+                    ?>
                 </table>
                 <!--======table ends======-->
             </div>
