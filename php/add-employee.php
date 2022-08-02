@@ -34,7 +34,7 @@ session_start();
                     <label for="tel">Phone:</label>
                     <input type="tel" name="phone" id="tel" required>
                     <label for="department">Department:</label>
-                   <select name="department" id="department">
+                   <select name="department" id="department" required>
                        <?php
                        include('config.php');
                        $sql = "SELECT dept_name FROM department";
@@ -45,7 +45,7 @@ session_start();
                        ?>   
                    </select>
                     <label for="position">Position:</label>
-                   <select name="position" id="position">
+                   <select name="position" id="position" required>
                         <?php
                        include('config.php');
                        $sql = "SELECT p_name FROM position";
