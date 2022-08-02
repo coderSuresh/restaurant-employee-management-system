@@ -8,7 +8,7 @@
     <meta name="author" content="Suresh Dahal, Parash Kumar Bhandari">
     <meta name="description"
         content="Restaurant employee management system admin dashboard to store and manage employee records">
-    <title>Employees Record</title>
+    <title>Positions</title>
     <link rel="stylesheet" href="../styles/style.css">
     <script src="../js/app.js" defer></script>
 </head>
