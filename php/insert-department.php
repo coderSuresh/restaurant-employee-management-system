@@ -10,7 +10,8 @@ if (isset($_POST['add-department']))
     {
         $_SESSION['deptartment-insert'] = "Inserted succesfully";
          header("Location:add-department.php");
-    }   
+    }  
+    else {echo "error";} 
 }
 else
 {

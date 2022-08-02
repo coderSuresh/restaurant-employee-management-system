@@ -69,7 +69,7 @@ h1,
     position: fixed;
     left: 0;
     top: 0;
-    z-index: 10;
+    z-index: 1;
     min-height: 100vh;
     text-align: center;
     padding: 20px 10px;
@@ -79,8 +79,8 @@ h1,
         display: none;
 
         img {
-            height: 40px;
-            width: 40px;
+            height: 50px;
+            width: 50px;
         }
 
         color: colors.$white;
