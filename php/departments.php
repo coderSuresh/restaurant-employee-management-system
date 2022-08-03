@@ -24,11 +24,29 @@
               <?php @include('header.php'); ?>
             <div class="table-container">
                 <div class="grid-container">
+                     <?php
+                        include('config.php');
+                        $sql = "select dept_name from department";
+                        $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+                        while($row = mysqli_fetch_assoc($res)) {
+                    ?>
                     <div class="department-grid-item">
-                        <h2>Kitchen</h2>
+                        <h2><?php echo $row['dept_name']; ?></h2>
                         <hr>
                         <div class="department-grid-employee-count">
-                            <h2>69</h2>
+                            <h2>
+                                <?php
+                                    $dept_name = $row['dept_name'];
+                                    $sql_emp_no = "select count(employee.emp_name) as total
+                                                   from department
+                                                   inner join employee on department.dept_id = employee.dept_id
+                                                   where dept_name = '$dept_name'";
+
+                                    $res_emp_no = mysqli_query($conn, $sql_emp_no) or die(mysqli_error($conn));
+                                    $data = mysqli_fetch_assoc($res_emp_no);
+                                    echo $data['total'];
+                                ?>
+                            </h2>
                             <p>Employees</p>
                         </div>
                         <div class="overlay">
@@ -43,27 +61,7 @@
                             </a>
                         </div>
                     </div>
-
-                    <div class="department-grid-item">
-                        <h2>Kitchen</h2>
-                        <hr>
-                        <div class="department-grid-employee-count">
-                            <h2>69</h2>
-                            <p>Employees</p>
-                        </div>
-                        <div class="overlay">
-                            <a href="./edit-department.php">
-                                <span>Edit</span>
-                            </a>
-                            <a href="./employees.php">
-                                <span>View</span>
-                            </a>
-                            <a href="#">
-                                <span>Delete</span>
-                            </a>
-                        </div>
-                    </div>
-
+                    <?php } ?>
                 </div>
             </div>
         </div>

@@ -42,7 +42,8 @@
                                 department.dept_name
                                 from position
                                 inner join salary on position.sal_id = salary.sal_id
-                                inner join department on position.dept_id = department.dept_id";
+                                inner join department on position.dept_id = department.dept_id
+                                order by dept_name ASC";
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
                         $i = 1;
