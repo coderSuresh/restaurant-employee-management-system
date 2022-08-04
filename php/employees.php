@@ -116,7 +116,7 @@
                                     <span class="delete">
                                         <form action="./delete-employee.php" method="post">
                                             <input type="hidden" name="emp_id" value = "<?php echo $row['emp_id']; ?>">
-                                            <input type="submit" name="delete_employee" value="Delete">
+                                            <input type="submit" name="delete_employee" value="Delete" class="delete_warn">
                                         </form>
                                     </span>
                                 </div>
