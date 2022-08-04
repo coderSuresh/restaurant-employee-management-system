@@ -62,13 +62,14 @@
         background-color: white;
         transition: 0.3s linear;
 
-        span {
+        span, input[type=submit] {
             display: block;
             width: 90% !important;
             margin: 8px 5% 0;
             cursor: pointer;
             background-color: colors.$purple;
             border: none;
+            font-size: 1rem;
             padding: 7px;
             color: colors.$white;
         }

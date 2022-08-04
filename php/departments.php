@@ -26,7 +26,7 @@
                 <div class="grid-container">
                      <?php
                         include('config.php');
-                        $sql = "select dept_name from department";
+                        $sql = "select dept_id, dept_name from department";
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         while($row = mysqli_fetch_assoc($res)) {
                     ?>
@@ -56,9 +56,10 @@
                             <a href="./employees.php">
                                 <span>View</span>
                             </a>
-                            <a href="#">
-                                <span>Delete</span>
-                            </a>
+                            <form action="./delete-department.php" method="post">
+                                <input type="hidden" name="dept_id" value="<?php echo $row['dept_id']; ?>">
+                                <input type="submit" name="delete_department" value="Delete">
+                        </form>
                         </div>
                     </div>
                     <?php } ?>

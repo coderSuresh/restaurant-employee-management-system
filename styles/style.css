@@ -321,13 +321,14 @@ header,
   background-color: white;
   transition: 0.3s linear;
 }
-.department-grid-item .overlay span {
+.department-grid-item .overlay span, .department-grid-item .overlay input[type=submit] {
   display: block;
   width: 90% !important;
   margin: 8px 5% 0;
   cursor: pointer;
   background-color: #38006b;
   border: none;
+  font-size: 1rem;
   padding: 7px;
   color: #fff;
 }
