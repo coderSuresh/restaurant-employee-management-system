@@ -68,27 +68,6 @@
     }
 }
 
-.emp-form {
-
-    select,
-    input {
-        margin-right: 10px;
-
-        &:focus,
-        &:active {
-            background-color: colors.$purple;
-            color: colors.$white;
-            outline: 1px solid colors.$deepPurple;
-        }
-    }
-
-    input {
-        background-color: colors.$purple;
-        color: colors.$white;
-    }
-
-}
-
 .search-form {
     margin-left: 40px;
 

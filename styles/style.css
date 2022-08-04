@@ -206,22 +206,6 @@ header,
   color: #220042;
 }
 
-.emp-form select,
-.emp-form input {
-  margin-right: 10px;
-}
-.emp-form select:focus, .emp-form select:active,
-.emp-form input:focus,
-.emp-form input:active {
-  background-color: #38006b;
-  color: #fff;
-  outline: 1px solid #220042;
-}
-.emp-form input {
-  background-color: #38006b;
-  color: #fff;
-}
-
 .search-form {
   margin-left: 40px;
 }
@@ -523,10 +507,6 @@ h1 a:active,
   margin-bottom: 20px;
   border-collapse: collapse;
 }
-.body .table-container table .emp-name {
-  cursor: pointer;
-  color: #fff;
-}
 .body .table-container table th {
   color: #d0a4fa;
 }
@@ -544,6 +524,15 @@ h1 a:active,
 }
 .body .table-container table .action .action-menu:hover .action-menu-items {
   display: flex;
+}
+.body .table-container table .action .action-menu input[type=submit] {
+  background-color: transparent;
+  font-size: 1rem;
+  border: none;
+  outline: none;
+  color: #220042;
+  font-weight: bold;
+  cursor: pointer;
 }
 .body .table-container table .action .action-menu img {
   width: 25px;

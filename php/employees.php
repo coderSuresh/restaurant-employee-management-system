@@ -80,7 +80,8 @@
 
                     <?php
                         include("config.php");
-                        $sql = "select employee.emp_name, 
+                        $sql = "select employee.emp_id, 
+                                employee.emp_name, 
                                 department.dept_name, 
                                 position.p_name, 
                                 salary.salary, 
@@ -112,7 +113,12 @@
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
                                     <span class="edit"><a href="./edit-employee.php">Edit</a></span>
-                                    <span class="delete"><a href="#">Delete</a></span>
+                                    <span class="delete">
+                                        <form action="./delete-employee.php" method="post">
+                                            <input type="hidden" name="emp_id" value = "<?php echo $row['emp_id']; ?>">
+                                            <input type="submit" name="delete_employee" value="Delete">
+                                        </form>
+                                    </span>
                                 </div>
                             </div>
                         </td>

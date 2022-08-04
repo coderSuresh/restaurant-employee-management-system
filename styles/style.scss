@@ -199,11 +199,6 @@ h1,
             margin-bottom: 20px;
             border-collapse: collapse;
 
-            .emp-name {
-                cursor: pointer;
-                color: colors.$white;
-            }
-
             th {
                 color: colors.$lightPurple;
             }
@@ -225,6 +220,18 @@ h1,
 
                     &:hover .action-menu-items {
                         display: flex;
+                    }
+
+                    input {
+                        &[type=submit] {
+                            background-color: transparent;
+                            font-size: 1rem;
+                            border: none;
+                            outline: none;
+                            color: colors.$deepPurple;
+                            font-weight: bold;
+                            cursor: pointer;
+                        }
                     }
 
                     img {
