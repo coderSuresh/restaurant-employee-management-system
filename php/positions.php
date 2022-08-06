@@ -38,7 +38,8 @@
                     <?php
                         include("config.php");
                         $sql = "SELECT salary.salary, 
-                                position.p_name, 
+                                position.p_name,
+                                position.p_id, 
                                 department.dept_name
                                 from position
                                 inner join salary on position.sal_id = salary.sal_id
@@ -56,15 +57,13 @@
                         <td><?php echo $row['dept_name'];?></td>
                         <td><?php echo $row['salary'];?></td>
                         <td>
-
                             <?php
                                 $pos_name = $row['p_name'];
                                 $sql_emp_no = "SELECT COUNT(employee.emp_name) as total FROM position INNER JOIN employee on position.p_id = employee.p_id where position.p_name = '$pos_name'";
                                 $result = mysqli_query($conn, $sql_emp_no) or die(mysqli_error($conn));
-                                $row = mysqli_fetch_assoc($result);
-                                echo $row['total'];
+                                $data = mysqli_fetch_assoc($result);
+                                echo $data['total'];
                             ?>
-
                         </td>
                         <!-- *****action menu start***** -->
                         <td class="action">
@@ -72,7 +71,10 @@
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
                                     <span class="edit"><a href="./edit-position.php">Edit</a></span>
-                                    <span class="delete"><a href="#">Delete</a></span>
+                                    <form action="./delete-position.php" method="post">
+                                        <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; ?>">
+                                        <input type="submit" name="delete_position" value="Delete" class="delete_warn">
+                                    </form>
                                 </div>
                             </div>
                         </td>

@@ -548,10 +548,10 @@ h1 a:active,
   padding: 10px 10px 0 10px;
   flex-direction: column;
 }
-.body .table-container table .action-menu-items span {
+.body .table-container table .action-menu-items span, .body .table-container table .action-menu-items form {
   margin: 10px 0;
 }
-.body .table-container table .action-menu-items span a {
+.body .table-container table .action-menu-items span a, .body .table-container table .action-menu-items form a {
   color: #220042;
   font-weight: bold;
 }

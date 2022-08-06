@@ -107,18 +107,18 @@
                         <td><?php echo $row['salary'];?></td>
                         <td><?php echo $row['addr_name'];?></td>
                         <td><?php echo $row['ct_number'];?></td>
+
                         <!-- *****action menu start***** -->
                         <td class="action">
                             <div class="action-menu">
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
                                     <span class="edit"><a href="./edit-employee.php">Edit</a></span>
-                                    <span class="delete">
+                                    
                                         <form action="./delete-employee.php" method="post">
                                             <input type="hidden" name="emp_id" value = "<?php echo $row['emp_id']; ?>">
                                             <input type="submit" name="delete_employee" value="Delete" class="delete_warn">
                                         </form>
-                                    </span>
                                 </div>
                             </div>
                         </td>
