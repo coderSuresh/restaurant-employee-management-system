@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -53,7 +54,7 @@
                 <!-- ======filter section end====== -->
 
                 <!-- ======search start -->
-                <form action="#" method="post" class="form search-form">
+                <form action="./search.php" method="post" class="form search-form">
                     <div class="search">
                         <input type="text" name="search" placeholder="Search...">
                         <button type="submit" name="search-icon">
@@ -80,7 +81,26 @@
 
                     <?php
                         include("config.php");
-                        $sql = "select employee.emp_id, 
+                        if(isset($_SESSION['search-query'])) {
+                            $name = $_SESSION['search-query'];
+                            $sql = "select employee.emp_id, 
+                                employee.emp_name, 
+                                department.dept_name, 
+                                position.p_name, 
+                                salary.salary, 
+                                address.addr_name, 
+                                contact.ct_number
+                                from employee
+                                INNER JOIN department on employee.dept_id = department.dept_id
+                                INNER JOIN position on employee.p_id = position.p_id
+                                INNER JOIN salary on position.sal_id = salary.sal_id
+                                INNER JOIN address on employee.addr_id = address.addr_id
+                                INNER JOIN contact on employee.ct_id = contact.ct_id
+                                where emp_name like '%$name%'
+                                order by emp_id desc";
+                        } 
+                        else {
+                            $sql = "select employee.emp_id, 
                                 employee.emp_name, 
                                 department.dept_name, 
                                 position.p_name, 
@@ -94,6 +114,7 @@
                                 INNER JOIN address on employee.addr_id = address.addr_id
                                 INNER JOIN contact on employee.ct_id = contact.ct_id
                                 ORDER BY emp_id DESC";
+                        }
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
                         $i = 1;
@@ -137,3 +158,4 @@
 </body>
 
 </html>
+<?php unset($_SESSION['search-query']);?>
