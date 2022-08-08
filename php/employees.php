@@ -96,9 +96,27 @@
                                 INNER JOIN salary on position.sal_id = salary.sal_id
                                 INNER JOIN address on employee.addr_id = address.addr_id
                                 INNER JOIN contact on employee.ct_id = contact.ct_id
-                                where emp_name like '%$name%'
-                                order by emp_id desc";
+                                where employee.emp_name like '%$name%'
+                                order by employee.emp_id desc";
                         } 
+                        else if(isset($_SESSION['dept_emp_list'])) {
+                            $dept_id = $_SESSION['dept_emp_list'];
+                             $sql = "select employee.emp_id, 
+                                            employee.emp_name, 
+                                            department.dept_name, 
+                                            position.p_name, 
+                                            salary.salary, 
+                                            address.addr_name, 
+                                            contact.ct_number
+                                            from employee
+                                            INNER JOIN department on employee.dept_id = department.dept_id
+                                            INNER JOIN position on employee.p_id = position.p_id
+                                            INNER JOIN salary on position.sal_id = salary.sal_id
+                                            INNER JOIN address on employee.addr_id = address.addr_id
+                                            INNER JOIN contact on employee.ct_id = contact.ct_id
+                                            where department.dept_id = $dept_id
+                                            ORDER BY employee.emp_id DESC";
+                        }
                         else {
                             $sql = "select employee.emp_id, 
                                 employee.emp_name, 
@@ -113,7 +131,7 @@
                                 INNER JOIN salary on position.sal_id = salary.sal_id
                                 INNER JOIN address on employee.addr_id = address.addr_id
                                 INNER JOIN contact on employee.ct_id = contact.ct_id
-                                ORDER BY emp_id DESC";
+                                ORDER BY employee.emp_id DESC";
                         }
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
@@ -158,4 +176,4 @@
 </body>
 
 </html>
-<?php unset($_SESSION['search-query']);?>
+<?php unset($_SESSION['search-query'], $_SESSION['dept_emp_list']);?>

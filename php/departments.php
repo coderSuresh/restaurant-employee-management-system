@@ -50,13 +50,17 @@
                             <p>Employees</p>
                         </div>
                         <div class="overlay">
+                            <!-- ======edit department====== -->
                             <form action="./edit-department.php" method="post">
                                 <input type="hidden" name="dept_id" value="<?php echo $row['dept_id']; ?>">
                                 <input type="submit" name="edit_department" value="Edit">
                             </form>
-                            <a href="./employees.php">
-                                <span>View</span>
-                            </a>
+                            <!-- =======view department====== -->
+                             <form action="./view-department.php" method="post">
+                                <input type="hidden" name="dept_id" value="<?php echo $row['dept_id']; ?>">
+                                <input type="submit" name="view_department" value="View">
+                            </form>
+                            <!-- ======delete department====== -->
                             <form action="./delete-department.php" method="post">
                                 <input type="hidden" name="dept_id" value="<?php echo $row['dept_id']; ?>">
                                 <input type="submit" name="delete_department" value="Delete" class="delete_warn">
