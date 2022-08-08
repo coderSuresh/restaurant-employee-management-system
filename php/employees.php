@@ -152,12 +152,15 @@
                             <div class="action-menu">
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <span class="edit"><a href="./edit-employee.php">Edit</a></span>
-                                    
-                                        <form action="./delete-employee.php" method="post">
+                                    <form action="./edit-employee.php" method="post">
                                             <input type="hidden" name="emp_id" value = "<?php echo $row['emp_id']; ?>">
-                                            <input type="submit" name="delete_employee" value="Delete" class="delete_warn">
-                                        </form>
+                                            <input type="submit" name="edit_employee" value="Edit">
+                                    </form>
+                                    
+                                    <form action="./delete-employee.php" method="post">
+                                        <input type="hidden" name="emp_id" value = "<?php echo $row['emp_id']; ?>">
+                                        <input type="submit" name="delete_employee" value="Delete" class="delete_warn">
+                                    </form>
                                 </div>
                             </div>
                         </td>

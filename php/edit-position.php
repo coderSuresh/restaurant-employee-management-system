@@ -34,9 +34,11 @@
 
                         //======get departments with selected position id=======
                         $sql1 = "select department.dept_name,
+                                        department.dept_id,
                                         position.p_name,
                                         position.p_id,
-                                        salary.salary
+                                        salary.salary,
+                                        salary.sal_id
                                         from position 
                                         inner join department on position.dept_id = department.dept_id
                                         inner join salary on position.sal_id = salary.sal_id
@@ -61,8 +63,10 @@
                     <label for="name">Salary:</label>
                     <input type="text" name="salary" value="<?php echo $data1['salary']; ?>">
 
+                    <input type="hidden" name="sal_id" value = "<?php echo $data1['sal_id']; ?>">
                     <input type="hidden" name="p_id" value = "<?php echo $data1['p_id']; ?>">
 
+                    
                     <input type="submit" value="Edit Position" name="edit-position">
 
                 </form>

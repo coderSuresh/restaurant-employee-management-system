@@ -5,16 +5,7 @@
         $id = $_POST['p_id'];
         $salary = $_POST['salary'];
         $dept_name = $_POST['department'];
-
-        // fetch salary id
-        $sql = "select salary.sal_id
-                       FROM position
-                       INNER JOIN salary on position.sal_id = salary.sal_id
-                       where p_id = $id";
-        $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-
-        $data = mysqli_fetch_assoc($res);
-        $sal_id = $data['sal_id'];
+        $sal_id = $_POST['sal_id'];
 
         // fetch dept id
         $sql_dept = "select dept_id from department where dept_name='$dept_name'";
