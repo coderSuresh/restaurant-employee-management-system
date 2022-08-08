@@ -70,7 +70,11 @@
                             <div class="action-menu">
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <span class="edit"><a href="./edit-position.php">Edit</a></span>
+
+                                    <form action="./edit-position.php" method="post">
+                                        <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; ?>">
+                                        <input type="submit" name="edit_position" value="Edit">
+                                    </form>                                    
                                     <form action="./delete-position.php" method="post">
                                         <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; ?>">
                                         <input type="submit" name="delete_position" value="Delete" class="delete_warn">

@@ -16,31 +16,52 @@
 <body>
     <main>
         <!-- ======siderbar start====== -->
-      <?php @include('sidebar.php'); ?>
+      <?php include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-               <?php @include('header.php'); ?>
+               <?php include('header.php'); ?>
             <div class="table-container">
-                <form action="#" method="post" class="add-form">
+                <form action="./edit-position-main.php" method="post" class="add-form">
+                    <?php
+                        include('config.php');
+                        //selected position
+                        $selected_position_id = $_POST['p_id'];
+                        //=====get all department======
+                        $sql = "select dept_name from department";
+                        $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
+
+                        //======get departments with selected position id=======
+                        $sql1 = "select department.dept_name,
+                                        position.p_name,
+                                        position.p_id,
+                                        salary.salary
+                                        from position 
+                                        inner join department on position.dept_id = department.dept_id
+                                        inner join salary on position.sal_id = salary.sal_id
+                                        where position.p_id = $selected_position_id";
+                        $res1 = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
+                        $data1 = mysqli_fetch_assoc($res1);
+                    ?>
                     <label for="name">Department:</label>
-                    <select name="department" id="department">
-                       <?php
-                       include('config.php');
-                       $sql = "SELECT dept_name FROM department";
-                       $res = mysqli_query($conn, $sql);
-                       while ($data=mysqli_fetch_array($res)) {?>
-                        <option value="<?php echo $data['dept_name'];?>"><?php echo $data['dept_name'];?></option>
-                      <?php }
-                       ?>                      
+                    <select name="department" id="department">    
+                    <?php
+                       while ($data=mysqli_fetch_assoc($res)) {
+                    ?>
+                        <option value="<?php echo $data['dept_name'];?>" <?php if($data['dept_name']===$data1['dept_name']) echo "selected"; ?>><?php echo $data['dept_name'];?></option>
+                    <?php
+                        }
+                    ?>                      
                     </select>
 
                     <label for="name">Position Name:</label>
-                    <input type="text" name="name" id="name"> 
+                    <input type="text" name="name" value="<?php echo $data1['p_name']; ?>"> 
                     
                     <label for="name">Salary:</label>
-                    <input type="text" name="salary" id="salary">
+                    <input type="text" name="salary" value="<?php echo $data1['salary']; ?>">
+
+                    <input type="hidden" name="p_id" value = "<?php echo $data1['p_id']; ?>">
 
                     <input type="submit" value="Edit Position" name="edit-position">
 
