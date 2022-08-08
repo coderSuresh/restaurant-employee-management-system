@@ -50,9 +50,10 @@
                             <p>Employees</p>
                         </div>
                         <div class="overlay">
-                            <a href="./edit-department.php">
-                                <span>Edit</span>
-                            </a>
+                            <form action="./edit-department.php" method="post">
+                                <input type="hidden" name="dept_id" value="<?php echo $row['dept_id']; ?>">
+                                <input type="submit" name="edit_department" value="Edit">
+                            </form>
                             <a href="./employees.php">
                                 <span>View</span>
                             </a>

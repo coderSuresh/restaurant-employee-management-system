@@ -16,16 +16,29 @@
 <body>
     <main>
         <!-- ======siderbar start====== -->
-       <?php @include('sidebar.php'); ?>
+       <?php include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-                <?php @include('header.php'); ?>
+                <?php 
+                    include('header.php'); 
+                    include('config.php');
+                ?>
             <div class="table-container">
-                <form action="#" method="post" class="add-form add-department">
+                <form action="./edit-department-main.php" method="post" class="add-form add-department">
                     <label for="name">Department Name:</label>
-                    <input type="text" name="name" id="name">
+                    <input type="text" name="dept-name" value="<?php 
+                                                            if(isset($_POST['edit_department'])) {
+                                                                $dept_id = $_POST['dept_id'];
+                                                                $sql = "select dept_name from department where dept_id = $dept_id";
+                                                                $res = mysqli_query($conn, $sql) or die("Could not fetch department name " . mysqli_error($conn));
+                                                                $row = mysqli_fetch_assoc($res);
+                                                                $dept_name = $row['dept_name'];
+                                                                 echo $dept_name; 
+                                                            }
+                                                        ?>">
+                    <input type="hidden" name="dept_id" value="<?php echo $dept_id; ?>">
 
                     <input type="submit" value="Edit Department" name="edit-department">
 
