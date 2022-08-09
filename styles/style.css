@@ -156,43 +156,17 @@ header,
   margin: 10px 0px;
 }
 
-.filter-drop-menu {
-  position: relative;
-}
-.filter-drop-menu p {
+.filter-drop-menu select,
+.filter-drop-menu input {
+  padding: 5px 10px;
+  font-size: 0.9rem;
+  color: #220042;
   border: 1px solid #220042;
 }
-.filter-drop-menu p, .filter-drop-menu a {
-  padding: 5px 10px;
-  cursor: pointer;
-}
-.filter-drop-menu:hover .filter-drop-menu-content {
-  display: block;
-}
-.filter-drop-menu .filter-drop-menu-content {
-  display: none;
-  position: absolute;
-  top: 38px;
-  background-color: #220042;
-}
-.filter-drop-menu .filter-drop-menu-content * {
-  color: #fff;
-  margin-bottom: 10px;
-}
-.filter-drop-menu .filter-drop-sub-menu {
-  position: relative;
-}
-.filter-drop-menu .filter-drop-sub-menu:hover .filter-drop-sub-menu-content {
-  display: block;
-}
-.filter-drop-menu .filter-drop-sub-menu .filter-drop-sub-menu-content {
-  display: none;
-  position: absolute;
-  top: 0;
-  left: 101%;
-  width: 100%;
-  padding: 20px 10px;
-  background-color: #220042;
+.filter-drop-menu select:active, .filter-drop-menu select:focus,
+.filter-drop-menu input:active,
+.filter-drop-menu input:focus {
+  outline: 2px solid #d0a4fa;
 }
 
 .form input[type=submit] {

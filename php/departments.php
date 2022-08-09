@@ -28,7 +28,7 @@
                         include('config.php');
                         $sql = "select dept_id, dept_name from department";
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                        if($mysqli_num_rows($res) > 0) {
+                        if(mysqli_num_rows($res) > 0) {
                         while($row = mysqli_fetch_assoc($res)) {
                     ?>
                     <div class="department-grid-item">

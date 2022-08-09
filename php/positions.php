@@ -46,7 +46,7 @@
                                 inner join department on position.dept_id = department.dept_id
                                 order by dept_name ASC";
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-                        if($mysqli_num_rows($res) > 0) {
+                        if(mysqli_num_rows($res) > 0) {
                             $i = 1;
                             while($row = mysqli_fetch_assoc($res)) {
                     ?>

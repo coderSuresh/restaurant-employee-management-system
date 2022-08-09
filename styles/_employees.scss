@@ -9,46 +9,17 @@
 
 // ======filter======
 .filter-drop-menu {
-    position: relative;
-    p {
-        border: 1px solid colors.$deepPurple;
-    }
 
-    p, a {
+    select,
+    input {
         padding: 5px 10px;
-        cursor: pointer;
-    }
+        font-size: 0.9rem;
+        color: colors.$deepPurple;
+        border: 1px solid colors.$deepPurple;
 
-    &:hover .filter-drop-menu-content {
-        display: block;
-    }
-
-    .filter-drop-menu-content {
-        display: none;
-        position: absolute;
-        top: 38px;
-        background-color: colors.$deepPurple;
-
-        * {
-            color: colors.$white;
-            margin-bottom: 10px;
-        }
-    }
-
-    .filter-drop-sub-menu {
-        position: relative;
-        &:hover .filter-drop-sub-menu-content {
-            display: block;
-        }
-
-        .filter-drop-sub-menu-content {
-            display: none;
-            position: absolute;
-            top: 0;
-            left: 101%;
-            width: 100%;
-            padding: 20px 10px;
-            background-color: colors.$deepPurple;
+        &:active,
+        &:focus {
+            outline: 2px solid colors.$lightPurple;
         }
     }
 }

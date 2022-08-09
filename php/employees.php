@@ -27,29 +27,14 @@
             <div class="filter-row">
                 <!-- ======filter section start====== -->
                 <div class="filter-drop-menu">
-                    <p>Departments</p>
-                    <div class="filter-drop-menu-content">
-                        <ul>
-                        <li><a href="#">Test</a></li>
-                        <li>
-                            <div class="filter-drop-sub-menu">
-                                <p>test with sub test</p>
-                               <div class="filter-drop-sub-menu-content">
-                                 <ul>
-                                    <li><a href="#">sub test 1</a></li>
-                                    <li><a href="#">sub test 2</a></li>
-                                    <li><a href="#">sub test 3</a></li>
-                                    <li><a href="#">sub test 4</a></li>
-                                    <li><a href="#">sub test 5</a></li>
-                                </ul>
-                               </div>
-                            </div>
-                        </li>
-                        <li><a href="#">Test</a></li>
-                        <li><a href="#">Test</a></li>
-                        <li><a href="#">Test</a></li>
-                    </ul>
-                    </div>
+                     <form action="#" method="post">
+                        <select name="sort-by" value="Sort by">
+                            <option name="latest-added" value="latest-added">Latest added</option>
+                            <option name="first-added" value="first-added">First added</option>
+                            <option name="a-z" value="a-z">Name (A-Z)</option>
+                            <option name="z-a" value="z-a">Name (Z-A)</option>
+                        </select>
+                    </form>
                 </div>
                 <!-- ======filter section end====== -->
 
@@ -84,20 +69,20 @@
                         if(isset($_SESSION['search-query'])) {
                             $name = $_SESSION['search-query'];
                             $sql = "select employee.emp_id, 
-                                employee.emp_name, 
-                                department.dept_name, 
-                                position.p_name, 
-                                salary.salary, 
-                                address.addr_name, 
-                                contact.ct_number
-                                from employee
-                                INNER JOIN department on employee.dept_id = department.dept_id
-                                INNER JOIN position on employee.p_id = position.p_id
-                                INNER JOIN salary on position.sal_id = salary.sal_id
-                                INNER JOIN address on employee.addr_id = address.addr_id
-                                INNER JOIN contact on employee.ct_id = contact.ct_id
-                                where employee.emp_name like '%$name%'
-                                order by employee.emp_id desc";
+                                           employee.emp_name, 
+                                           department.dept_name, 
+                                           position.p_name, 
+                                           salary.salary, 
+                                           address.addr_name, 
+                                           contact.ct_number
+                                           from employee
+                                           INNER JOIN department on employee.dept_id = department.dept_id
+                                           INNER JOIN position on employee.p_id = position.p_id
+                                           INNER JOIN salary on position.sal_id = salary.sal_id
+                                           INNER JOIN address on employee.addr_id = address.addr_id
+                                           INNER JOIN contact on employee.ct_id = contact.ct_id
+                                           where employee.emp_name like '%$name%'
+                                           order by employee.emp_id desc";
                         } 
                         else if(isset($_SESSION['dept_emp_list'])) {
                             $dept_id = $_SESSION['dept_emp_list'];
@@ -119,23 +104,23 @@
                         }
                         else {
                             $sql = "select employee.emp_id, 
-                                employee.emp_name, 
-                                department.dept_name, 
-                                position.p_name, 
-                                salary.salary, 
-                                address.addr_name, 
-                                contact.ct_number
-                                from employee
-                                INNER JOIN department on employee.dept_id = department.dept_id
-                                INNER JOIN position on employee.p_id = position.p_id
-                                INNER JOIN salary on position.sal_id = salary.sal_id
-                                INNER JOIN address on employee.addr_id = address.addr_id
-                                INNER JOIN contact on employee.ct_id = contact.ct_id
-                                ORDER BY employee.emp_id DESC";
+                                           employee.emp_name, 
+                                           department.dept_name, 
+                                           position.p_name, 
+                                           salary.salary, 
+                                           address.addr_name, 
+                                           contact.ct_number
+                                           from employee
+                                           INNER JOIN department on employee.dept_id = department.dept_id
+                                           INNER JOIN position on employee.p_id = position.p_id
+                                           INNER JOIN salary on position.sal_id = salary.sal_id
+                                           INNER JOIN address on employee.addr_id = address.addr_id
+                                           INNER JOIN contact on employee.ct_id = contact.ct_id
+                                           ORDER BY employee.emp_id DESC";
                         }
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-                        if($mysqli_num_rows($res) > 0) {
+                        if(mysqli_num_rows($res) > 0) {
                             $i = 1;
                             while($row = mysqli_fetch_assoc($res)) {
                     ?>
