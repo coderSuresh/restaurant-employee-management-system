@@ -135,8 +135,9 @@
                         }
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
 
-                        $i = 1;
-                        while($row = mysqli_fetch_assoc($res)) {
+                        if($mysqli_num_rows($res) > 0) {
+                            $i = 1;
+                            while($row = mysqli_fetch_assoc($res)) {
                     ?>
                     <tr>
                         <td><?php echo $i; ?></td>
@@ -169,6 +170,8 @@
                     <?php
                         $i++;
                         }
+                    }
+                    else echo "No records found";
                     ?>
                 </table>
                 <!--======table ends======-->
