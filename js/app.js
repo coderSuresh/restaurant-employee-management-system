@@ -20,3 +20,9 @@ deleteBtn.forEach((button) => {
         }
     })
 })
+
+// to submit filter form
+const filterForm = document.querySelector('.filter-form')
+filterForm.addEventListener('change', () => {
+    filterForm.submit()
+})

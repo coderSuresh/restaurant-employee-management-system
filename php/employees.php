@@ -17,22 +17,22 @@
 <body>
     <main>
         <!-- ======siderbar start====== -->
-         <?php @include('sidebar.php'); ?>
+         <?php include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-                <?php @include('header.php'); ?>
+                <?php include('header.php'); ?>
 
             <div class="filter-row">
                 <!-- ======filter section start====== -->
                 <div class="filter-drop-menu">
-                     <form action="#" method="post">
+                     <form action="./filter.php" method="post" class="filter-form">
                         <select name="sort-by" value="Sort by">
-                            <option name="latest-added" value="latest-added">Latest added</option>
-                            <option name="first-added" value="first-added">First added</option>
-                            <option name="a-z" value="a-z">Name (A-Z)</option>
-                            <option name="z-a" value="z-a">Name (Z-A)</option>
+                            <option value="latest-added">Latest added</option>
+                            <option value="first-added">First added</option>
+                            <option value="a-z">Name (A-Z)</option>
+                            <option value="z-a">Name (Z-A)</option>
                         </select>
                     </form>
                 </div>
@@ -102,6 +102,23 @@
                                             where department.dept_id = $dept_id
                                             ORDER BY employee.emp_id DESC";
                         }
+                        else if(isset($_SESSION['filter-msg'])) {
+                            $filter_query = $_SESSION['filter-msg'];
+                             $sql = "select employee.emp_id, 
+                                            employee.emp_name, 
+                                            department.dept_name, 
+                                            position.p_name, 
+                                            salary.salary, 
+                                            address.addr_name, 
+                                            contact.ct_number
+                                            from employee
+                                            INNER JOIN department on employee.dept_id = department.dept_id
+                                            INNER JOIN position on employee.p_id = position.p_id
+                                            INNER JOIN salary on position.sal_id = salary.sal_id
+                                            INNER JOIN address on employee.addr_id = address.addr_id
+                                            INNER JOIN contact on employee.ct_id = contact.ct_id
+                                            ORDER BY $filter_query";
+                        }
                         else {
                             $sql = "select employee.emp_id, 
                                            employee.emp_name, 
@@ -167,4 +184,4 @@
 </body>
 
 </html>
-<?php unset($_SESSION['search-query'], $_SESSION['dept_emp_list']);?>
+<?php unset($_SESSION['search-query'], $_SESSION['dept_emp_list'], $_SESSION['filter-msg']);?>
