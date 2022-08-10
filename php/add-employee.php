@@ -27,11 +27,33 @@ session_start();
                 <?php @include('header.php'); ?>
             <div class="table-container">
                 <form action="insert-employee.php" method="post" class="add-form">
-                    <label for="name">Name:</label>
+                <p>
+                    <?php
+                        
+                        if(isset($_SESSION["invalid_name"]))
+                        {
+                            echo $_SESSION["invalid_name"];
+                            unset($_SESSION["invalid_name"]);
+                        }
+                       if(isset($_SESSION["invalid_address"]))
+                        {
+                            echo $_SESSION["invalid_address"];
+                            unset($_SESSION["invalid_address"]);
+                        }
+                       if(isset($_SESSION["invlaid_phone"]))
+                        {
+                            echo $_SESSION["invlaid_phone"];
+                            unset($_SESSION["invlaid_phone"]);
+                        }
+                        
+                    ?>
+                </p>
+                <label for="name">Name:</label>
                     <input type="text" name="name" id="name" required>
                     <label for="address">Address:</label>
                     <input type="text" name="address" id="address" required>
                     <label for="tel">Phone:</label>
+               
                     <input type="tel" name="phone" id="tel" required>
                     <label for="department">Department:</label>
                    <select name="department" id="department" required>
@@ -79,3 +101,5 @@ session_start();
 <?php
 unset($_SESSION['employee-insert']); 
 ?>
+
+

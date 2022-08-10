@@ -49,6 +49,27 @@
                     }
                 ?>
                 <form action="./edit-employee-main.php" method="post" class="add-form">
+                     <p>
+                    <?php
+                        
+                        if(isset($_SESSION["invalid_name"]))
+                        {
+                            echo $_SESSION["invalid_name"];
+                            unset($_SESSION["invalid_name"]);
+                        }
+                       if(isset($_SESSION["invalid_address"]))
+                        {
+                            echo $_SESSION["invalid_address"];
+                            unset($_SESSION["invalid_address"]);
+                        }
+                       if(isset($_SESSION["invlaid_phone"]))
+                        {
+                            echo $_SESSION["invlaid_phone"];
+                            unset($_SESSION["invlaid_phone"]);
+                        }
+                        
+                    ?>
+                </p>
                     <label for="name">Name:</label>
                     <input type="text" name="name" value="<?php echo $row['emp_name']; ?>">
                     <label for="address">Address:</label>

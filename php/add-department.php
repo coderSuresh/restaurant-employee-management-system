@@ -28,6 +28,14 @@ session_start();
                <?php @include('header.php'); ?>
             <div class="table-container">
                 <form action="insert-department.php" method="post" class="add-form add-department">
+                    <?php                        
+                        if(isset($_SESSION["invalid_department"]))
+                        {
+                           echo $_SESSION["invalid_department"];
+                           ?><br>
+                            <?php unset($_SESSION["invalid_department"]);
+                        }                                              
+                    ?>                    
                     <label for="name">Department Name:</label>
                     <input type="text" name="name" id="name" required>
 

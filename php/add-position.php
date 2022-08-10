@@ -27,6 +27,21 @@ session_start();
                <?php @include('header.php'); ?>
             <div class="table-container">
                 <form action="insert-position.php" method="post" class="add-form">
+                      <p>
+                            <?php
+                        
+                        if(isset($_SESSION["invalid_position"]))
+                        {
+                            echo $_SESSION["invalid_position"];
+                            unset($_SESSION["invalid_position"]);
+                        }
+                       if(isset( $_SESSION["invalid_salary"]))
+                        {
+                            echo  $_SESSION["invalid_salary"] ;
+                            unset($_SESSION["invalid_salary"]);
+                        }                   
+                    ?>
+                    </p>
                     <label for="name">Department:</label>
                     <select name="department" id="department">
                        <?php
@@ -37,13 +52,12 @@ session_start();
                         <option value="<?php echo $data['dept_name'];?>"><?php echo $data['dept_name'];?></option>
                       <?php }
                        ?>                      
-                    </select>
-
+                    </select>                  
                     <label for="name">Position Name:</label>
-                    <input type="text" name="name" id="name"> 
+                    <input type="text" name="name" id="name" required> 
                     
                     <label for="name">Salary:</label>
-                    <input type="text" name="salary" id="salary">
+                    <input type="text" name="salary" id="salary" required> 
 
                     <input type="submit" value="Add Position" name="add-position">
 
