@@ -20,11 +20,11 @@
     }
     else if(!preg_match("/^[0-9]{1,}$/", $salary))
     {
-          $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
+         $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
          header("Location:edit-position");
     }
     else
-    {
+   {
           // update salary
         $sql_sal = "update salary set salary = $salary where sal_id=$sal_id";
         mysqli_query($conn, $sql_sal) or die(mysqli_error($conn));
