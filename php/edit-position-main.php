@@ -1,4 +1,5 @@
 <?php
+session_start();
     if(isset($_POST['edit-position'])) {
         include('config.php');
         $name = $_POST['name'];
@@ -20,7 +21,7 @@
     }
     else if(!preg_match("/^[0-9]{1,}$/", $salary))
     {
-         $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
+         $_SESSION["invalid_salary"] = "Salary should number only";
          header("Location:edit-position");
     }
     else

@@ -33,7 +33,7 @@
     }
     else if(!preg_match("/^[0-9]{10}$/", $phone))
     {
-        $_SESSION["invlaid_phone"] = "Phone number shouldn't contain alphabaet";
+        $_SESSION["invlaid_phone"] = "Phone number should contain 10 digits only";
         header("Location:employees");
     }
     else

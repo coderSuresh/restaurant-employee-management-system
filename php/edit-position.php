@@ -1,3 +1,4 @@
+<?php session_start();?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -47,8 +48,22 @@
                                         inner join salary on position.sal_id = salary.sal_id
                                         where position.p_id = $id";
                         $res1 = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
-                        $data1 = mysqli_fetch_assoc($res1);
+                        $data1 = mysqli_fetch_assoc($res1);                        
                     ?>
+                    <p>
+                        <?php 
+                            if (isset($_SESSION["invalid_name"])) 
+                            {
+                               echo $_SESSION["invalid_name"];
+                               unset($_SESSION["invalid_name"]);
+                            }
+                            if (isset($_SESSION["invalid_salary"])) 
+                            {
+                               echo $_SESSION["invalid_salary"];
+                               unset($_SESSION["invalid_salary"]);
+                            }
+                        ?>
+                    </p>
                     <label for="name">Department:</label>
                     <select name="department" id="department">    
                     <?php

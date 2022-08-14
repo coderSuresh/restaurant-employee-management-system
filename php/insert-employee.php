@@ -21,7 +21,7 @@ if (isset($_POST['add-employee'])){
     }
     else if(!preg_match("/^[0-9]{10}$/", $emp_phone))
     {
-        $_SESSION["invlaid_phone"] = "Phone number shouldn't contain alphabaet";
+        $_SESSION["invlaid_phone"] = "Phone number should contain 10 digits only";
         header("Location:add-employee");
     }
     else 
