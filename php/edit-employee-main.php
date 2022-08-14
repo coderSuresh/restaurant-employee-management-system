@@ -23,18 +23,18 @@
         if(!preg_match("/^[A-Z a-z]{2,30}$/", $name))
     {
          $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
-         header("Location:add-employee");
+         header("Location:employees");
     }
     
     else if(!preg_match("/^[0-9A-Z a-z]{2,30}$/", $address))
     {
         $_SESSION["invalid_address"] = "Address shouldn't contain special characters";
-        header("Location:add-employee");
+        header("Location:employees");
     }
     else if(!preg_match("/^[0-9]{10}$/", $phone))
     {
         $_SESSION["invlaid_phone"] = "Phone number shouldn't contain alphabaet";
-        header("Location:add-employee");
+        header("Location:employees");
     }
     else
     {      
