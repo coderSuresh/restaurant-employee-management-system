@@ -27,7 +27,7 @@
             <div class="filter-row">
                 <!-- ======filter section start====== -->
                 <div class="filter-drop-menu">
-                     <form action="./filter.php" method="post" class="filter-form">
+                     <form action="./filter" method="post" class="filter-form">
                         <select name="sort-by" value="Sort by">
                             <option value="latest-added">Latest added</option>
                             <option value="first-added">First added</option>
@@ -39,7 +39,7 @@
                 <!-- ======filter section end====== -->
 
                 <!-- ======search start -->
-                <form action="./search.php" method="post" class="form search-form">
+                <form action="./search" method="post" class="form search-form">
                     <div class="search">
                         <input type="text" name="search" placeholder="Search...">
                         <button type="submit" name="search-icon">
@@ -155,12 +155,12 @@
                             <div class="action-menu">
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
-                                    <form action="./edit-employee.php" method="post">
+                                    <form action="./edit-employee" method="post">
                                             <input type="hidden" name="emp_id" value = "<?php echo $row['emp_id']; ?>">
                                             <input type="submit" name="edit_employee" value="Edit">
                                     </form>
                                     
-                                    <form action="./delete-employee.php" method="post">
+                                    <form action="./delete-employee" method="post">
                                         <input type="hidden" name="emp_id" value = "<?php echo $row['emp_id']; ?>">
                                         <input type="submit" name="delete_employee" value="Delete" class="delete_warn">
                                     </form>

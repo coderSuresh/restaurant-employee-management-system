@@ -26,7 +26,7 @@ session_start();
         <div class="body">
                <?php @include('header.php'); ?>
             <div class="table-container">
-                <form action="insert-position.php" method="post" class="add-form">
+                <form action="insert-position" method="post" class="add-form">
                       <p>
                             <?php
                         

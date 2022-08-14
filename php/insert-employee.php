@@ -11,18 +11,18 @@ if (isset($_POST['add-employee'])){
     if(!preg_match("/^[A-Z a-z]{2,30}$/", $emp_name))
     {
          $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
-         header("Location:add-employee.php");
+         header("Location:add-employee");
     }
     
     else if(!preg_match("/^[0-9A-Z a-z]{2,30}$/", $emp_address))
     {
         $_SESSION["invalid_address"] = "Address shouldn't contain special characters";
-        header("Location:add-employee.php");
+        header("Location:add-employee");
     }
     else if(!preg_match("/^[0-9]{10}$/", $emp_phone))
     {
         $_SESSION["invlaid_phone"] = "Phone number shouldn't contain alphabaet";
-        header("Location:add-employee.php");
+        header("Location:add-employee");
     }
     else 
     {
@@ -50,7 +50,7 @@ if (isset($_POST['add-employee'])){
         if($result1&&$result2&&$result3&&$result4&&$result5)
         {
             $_SESSION['employee-insert'] = "Inserted succesfully";
-            header("Location:add-employee.php");       
+            header("Location:add-employee");       
         }
         else echo "Failed";        
     } 
@@ -59,6 +59,6 @@ if (isset($_POST['add-employee'])){
 }
 else
 {
-   header("Location:add-employee.php");
+   header("Location:add-employee");
 }
 ?>

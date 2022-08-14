@@ -15,6 +15,6 @@
         else if($filter_query === "first-added") {
             $_SESSION['filter-msg'] = "employee.emp_id asc";
         }
-        header('location:./employees.php');
-    } else header('location:./employees.php');
+        header('location:./employees');
+    } else header('location:./employees');
 ?>

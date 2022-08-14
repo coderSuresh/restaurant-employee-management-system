@@ -23,18 +23,18 @@
         if(!preg_match("/^[A-Z a-z]{2,30}$/", $name))
     {
          $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
-         header("Location:add-employee.php");
+         header("Location:add-employee");
     }
     
     else if(!preg_match("/^[0-9A-Z a-z]{2,30}$/", $address))
     {
         $_SESSION["invalid_address"] = "Address shouldn't contain special characters";
-        header("Location:add-employee.php");
+        header("Location:add-employee");
     }
     else if(!preg_match("/^[0-9]{10}$/", $phone))
     {
         $_SESSION["invlaid_phone"] = "Phone number shouldn't contain alphabaet";
-        header("Location:add-employee.php");
+        header("Location:add-employee");
     }
     else
     {      
@@ -49,8 +49,8 @@
         // update name, department & position ids
         $sql = "update employee set emp_name = '$name', dept_id = $dept_id, p_id = $p_id where emp_id = $emp_id";
         mysqli_query($conn, $sql) or die(mysqli_error($conn));
-        header("location:./employees.php");
+        header("location:./employees");
     }              
     } 
-    else header("location:./employees.php");
+    else header("location:./employees");
 ?>

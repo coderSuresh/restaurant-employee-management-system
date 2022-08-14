@@ -31,14 +31,14 @@
                 </div>
                 <hr class="sidebar-hr">
                <div class="items-container">
-                     <a href="./add-employee.php">
+                     <a href="./add-employee">
                         <img src="../images/add.svg" alt="add employee">
                         <p class="sidebar-label">Add Employee</p>
                      </a>
                     <span class="tooltip-text">Add Employee</span>
                 </div>
                 <div class="items-container">
-                    <a href="./employees.php">
+                    <a href="./employees">
                         <img src="../images/view.svg" alt="view employee">
                         <p class="sidebar-label">View Employee</p>
                     </a>
@@ -56,14 +56,14 @@
                 </div>
                 <hr class="sidebar-hr">
                 <div class="items-container">
-                    <a href="./add-department.php">
+                    <a href="./add-department">
                         <img src="../images/add.svg" alt="add department">
                         <p class="sidebar-label">Add Department</p>
                     </a>
                     <span class="tooltip-text">Add Department</span>
                 </div>
                 <div class="items-container">
-                    <a href="./departments.php">
+                    <a href="./departments">
                         <img src="../images/view.svg" alt="view department">
                         <p class="sidebar-label">View Department</p>
                     </a>
@@ -81,14 +81,14 @@
                 </div>
                 <hr class="sidebar-hr">
                 <div class="items-container">
-                    <a href="./add-position.php">
+                    <a href="./add-position">
                         <img src="../images/add.svg" alt="add position">
                         <p class="sidebar-label">Add Position</p>
                     </a>
                     <span class="tooltip-text">Add Position</span>
                 </div>
                 <div class="items-container">
-                    <a href="./positions.php">
+                    <a href="./positions">
                         <img src="../images/view.svg" alt="view positions">
                         <p class="sidebar-label">View Position</p>
                     </a>

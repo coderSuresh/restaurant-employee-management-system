@@ -36,7 +36,7 @@
                     </tr>
 
                     <?php
-                        include("config.php");
+                        include('config.php');
                         $sql = "SELECT salary.salary, 
                                 position.p_name,
                                 position.p_id, 
@@ -71,11 +71,11 @@
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
 
-                                    <form action="./edit-position.php" method="post">
+                                    <form action="./edit-position" method="post">
                                         <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; ?>">
                                         <input type="submit" name="edit_position" value="Edit">
                                     </form>                                    
-                                    <form action="./delete-position.php" method="post">
+                                    <form action="./delete-position" method="post">
                                         <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; ?>">
                                         <input type="submit" name="delete_position" value="Delete" class="delete_warn">
                                     </form>

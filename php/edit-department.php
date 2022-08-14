@@ -26,7 +26,7 @@
                     include('config.php');
                 ?>
             <div class="table-container">
-                <form action="./edit-department-main.php" method="post" class="add-form add-department">
+                <form action="./edit-department-main" method="post" class="add-form add-department">
                     <label for="name">Department Name:</label>
                     <input type="text" name="dept-name" value="<?php 
                                                             if(isset($_POST['edit_department'])) {

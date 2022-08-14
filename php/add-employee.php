@@ -26,7 +26,7 @@ session_start();
         <div class="body">
                 <?php @include('header.php'); ?>
             <div class="table-container">
-                <form action="insert-employee.php" method="post" class="add-form">
+                <form action="insert-employee" method="post" class="add-form">
                 <p>
                     <?php
                         
@@ -58,7 +58,7 @@ session_start();
                     <label for="department">Department:</label>
                    <select name="department" id="department" required>
                        <?php
-                       include('config.php');
+                       include('config');
                        $sql = "SELECT dept_name FROM department";
                        $res = mysqli_query($conn, $sql);
                        while ($data=mysqli_fetch_array($res)) {?>
@@ -69,7 +69,7 @@ session_start();
                     <label for="position">Position:</label>
                    <select name="position" id="position" required>
                         <?php
-                       include('config.php');
+                       include('config');
                        $sql = "SELECT p_name FROM position";
                        $res = mysqli_query($conn, $sql);
                        while ($data=mysqli_fetch_array($res)) {?>

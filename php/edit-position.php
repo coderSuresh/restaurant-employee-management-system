@@ -23,7 +23,7 @@
         <div class="body">
                <?php include('header.php'); ?>
             <div class="table-container">
-                <form action="./edit-position-main.php" method="post" class="add-form">
+                <form action="./edit-position-main" method="post" class="add-form">
                     <?php
                         include('config.php');
                         //selected position

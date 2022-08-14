@@ -29,7 +29,7 @@
         $sql = "delete from employee where emp_id=$emp_id";
         mysqli_query($conn, $sql) or die("Could not delete from database.");
 
-        header('location:./employees.php');
+        header('location:./employees');
     }
-    else header("location:./employees.php");
+    else header("location:./employees");
 ?>

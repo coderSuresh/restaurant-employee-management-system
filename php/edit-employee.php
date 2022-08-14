@@ -1,4 +1,4 @@
-<?php include("config.php"); ?>
+<?php include('config.php'); ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -48,7 +48,7 @@
                         $row = mysqli_fetch_assoc($res);
                     }
                 ?>
-                <form action="./edit-employee-main.php" method="post" class="add-form">
+                <form action="./edit-employee-main" method="post" class="add-form">
                      <p>
                     <?php
                         

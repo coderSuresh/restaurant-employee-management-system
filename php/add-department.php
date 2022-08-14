@@ -27,7 +27,7 @@ session_start();
         <div class="body">
                <?php @include('header.php'); ?>
             <div class="table-container">
-                <form action="insert-department.php" method="post" class="add-form add-department">
+                <form action="insert-department" method="post" class="add-form add-department">
                     <?php                        
                         if(isset($_SESSION["invalid_department"]))
                         {

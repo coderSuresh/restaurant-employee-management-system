@@ -21,7 +21,7 @@
         $sql_pos = "UPDATE position set p_name = '$name', dept_id = $dept_id where p_id = $id";
         mysqli_query($conn, $sql_pos) or die(mysqli_error($conn));
 
-        header("location:./positions.php");
+        header("location:./positions");
     } 
-    else header("location:./positions.php");
+    else header("location:./positions");
 ?>
