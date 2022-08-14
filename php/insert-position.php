@@ -2,16 +2,15 @@
 session_start();
 @include('config.php');
 if (isset($_POST['add-position']))
-{   
-    $pos_name=mysqli_real_escape_string($conn, $_POST['name']);
-    $salary = mysqli_real_escape_string($conn, $_POST['salary']);   
-    $sql_dept_id = "select dept_id from department where dept_name = '$dept'"; 
-    $ql_sal = "insert into salary values(default, $salary)";
-    
+{    
     if(!empty($_POST['department']))
     {
         $dept = $_POST['department'];
-    }      
+    }
+    $pos_name=mysqli_real_escape_string($conn, $_POST['name']);
+    $salary = mysqli_real_escape_string($conn, $_POST['salary']);   
+    $sql_dept_id = "select dept_id from department where dept_name = '$dept'"; 
+    $sql_sal = "insert into salary values(default, $salary)";         
  
     $res_dept_id = mysqli_query($conn, $sql_dept_id) or die(mysqli_error($conn));
     $row = mysqli_fetch_assoc($res_dept_id);
