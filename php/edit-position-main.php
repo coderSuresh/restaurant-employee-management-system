@@ -13,7 +13,19 @@
         $row = mysqli_fetch_assoc($res_dept);
         $dept_id = $row['dept_id'];
 
-        // update salary
+    if(!preg_match("/^[A-Z a-z]{2,30}$/", $name))
+    {
+         $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
+         header("Location:edit-position");
+    }
+    else if(!preg_match("/^[0-9]{1,}$/", $salary))
+    {
+          $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
+         header("Location:edit-position");
+    }
+    else
+    {
+          // update salary
         $sql_sal = "update salary set salary = $salary where sal_id=$sal_id";
         mysqli_query($conn, $sql_sal) or die(mysqli_error($conn));
 
@@ -22,6 +34,8 @@
         mysqli_query($conn, $sql_pos) or die(mysqli_error($conn));
 
         header("location:./positions");
+    }
+      
     } 
     else header("location:./positions");
 ?>
