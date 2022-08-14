@@ -27,11 +27,14 @@
                     <?php
                         include('config.php');
                         //selected position
-                        $selected_position_id = $_POST['p_id'];
+                        if(isset($_POST['p_id'])) {
+                            $_SESSION['selected_position_id'] = $_POST['p_id'];
+                        }
+
                         //=====get all department======
                         $sql = "select dept_name from department";
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
-
+                        $id = $_SESSION['selected_position_id'];
                         //======get departments with selected position id=======
                         $sql1 = "select department.dept_name,
                                         department.dept_id,
@@ -42,7 +45,7 @@
                                         from position 
                                         inner join department on position.dept_id = department.dept_id
                                         inner join salary on position.sal_id = salary.sal_id
-                                        where position.p_id = $selected_position_id";
+                                        where position.p_id = $id";
                         $res1 = mysqli_query($conn, $sql1) or die(mysqli_error($conn));
                         $data1 = mysqli_fetch_assoc($res1);
                     ?>
