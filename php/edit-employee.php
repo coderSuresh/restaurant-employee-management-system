@@ -1,4 +1,6 @@
-<?php include('config.php'); ?>
+<?php session_start();
+      include('config.php');
+ ?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -26,8 +28,12 @@
         
             <div class="table-container">
                 <?php
+               
+
                     if(isset($_POST['edit_employee'])) {
-                        $emp_id = $_POST['emp_id'];
+                        $_SESSION['id'] = $_POST['emp_id'];                       
+                    }
+                      $emp_id = $_SESSION['id'];
                         $sql = "select employee.emp_id, 
                                     employee.emp_name, 
                                     department.dept_name,
@@ -46,7 +52,6 @@
                                     where employee.emp_id = $emp_id";
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         $row = mysqli_fetch_assoc($res);
-                    }
                 ?>
                 <form action="./edit-employee-main" method="post" class="add-form">
                      <p>
@@ -62,11 +67,12 @@
                             echo $_SESSION["invalid_address"];
                             unset($_SESSION["invalid_address"]);
                         }
-                       if(isset($_SESSION["invlaid_phone"]))
+                       if(isset($_SESSION["invalid_phone"]))
                         {
-                            echo $_SESSION["invlaid_phone"];
-                            unset($_SESSION["invlaid_phone"]);
+                            echo $_SESSION["invalid_phone"];
+                            unset($_SESSION["invalid_phone"]);
                         }
+                      
                         
                     ?>
                 </p>

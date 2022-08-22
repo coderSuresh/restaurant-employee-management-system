@@ -1,4 +1,5 @@
 <?php
+    session_start();
     if(isset($_POST['edit-employee'])) {
         include('config.php');
         $name = $_POST['name'];
@@ -23,18 +24,18 @@
         if(!preg_match("/^[A-Z a-z]{2,30}$/", $name))
     {
          $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
-         header("Location:employees");
+         header("Location:edit-employee");
     }
     
     else if(!preg_match("/^[0-9A-Z a-z]{2,30}$/", $address))
     {
         $_SESSION["invalid_address"] = "Address shouldn't contain special characters";
-        header("Location:employees");
+     header("Location:edit-employee");
     }
     else if(!preg_match("/^[0-9]{10}$/", $phone))
     {
-        $_SESSION["invlaid_phone"] = "Phone number should contain 10 digits only";
-        header("Location:employees");
+        $_SESSION["invalid_phone"] = "Phone number should contain 10 digits only";
+      header("Location:edit-employee");
     }
     else
     {      
