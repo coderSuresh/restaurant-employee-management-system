@@ -16,7 +16,7 @@
 <body>
     <main>
         <!-- ======siderbar start====== -->
-     <?php @include('sidebar.php'); ?>
+     <?php session_start();@include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
@@ -63,7 +63,9 @@
                             </form>
                             <!-- ======delete department====== -->
                             <form action="./delete-department" method="post">
-                                <input type="hidden" name="dept_id" value="<?php echo $row['dept_id']; ?>">
+                              <?php   $_SESSION['dept_id'] = $row['dept_id'];?>
+                                
+                                <input type="hidden" name="dept_id" value="<?php echo $_SESSION['dept_id']; ?>">
                                 <input type="submit" name="delete_department" value="Delete" class="delete_warn">
                             </form>
                         </div>

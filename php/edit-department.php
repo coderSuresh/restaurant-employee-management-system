@@ -27,6 +27,18 @@
                 ?>
             <div class="table-container">
                 <form action="./edit-department-main" method="post" class="add-form add-department">
+                    <p>
+                           <?php
+                        
+                        if(isset($_SESSION["invalid_name"]))
+                        {
+                            echo $_SESSION["invalid_name"];
+                            unset($_SESSION["invalid_name"]);
+                        }                
+                      
+                        
+                    ?>
+                    </p>
                     <label for="name">Department Name:</label>
                     <input type="text" name="dept-name" value="<?php 
                                                             if(isset($_POST['edit_department'])) {
