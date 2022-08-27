@@ -1,5 +1,6 @@
 <?php 
-session_start();
+    session_start();                    
+    $_SESSION['which-page'] = "Add Position";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +20,14 @@ session_start();
 <body>
     <main>
         <!-- ======siderbar start====== -->
-      <?php @include('sidebar.php'); ?>
+      <?php include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-               <?php @include('header.php'); ?>
+               <?php include('header.php'); ?>
             <div class="table-container">
-                <form action="insert-position" method="post" class="add-form">
+                <form action="insert-position.php" method="post" class="add-form">
                       <p>
                             <?php
                         
@@ -80,5 +81,5 @@ session_start();
 
 </html>
 <?php
-unset($_SESSION['position-insert']); 
+unset($_SESSION['position-insert'], $_SESSION['which-page']); 
 ?>

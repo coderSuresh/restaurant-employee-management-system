@@ -1,5 +1,6 @@
 <?php 
-session_start();
+    session_start();                    
+    $_SESSION['which-page'] = "Add Employee";
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -19,14 +20,14 @@ session_start();
 <body>
     <main>
         <!-- ======siderbar start====== -->
-   <?php @include('sidebar.php'); ?>
+   <?php include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-                <?php @include('header.php'); ?>
+                <?php include('header.php'); ?>
             <div class="table-container">
-                <form action="insert-employee" method="post" class="add-form">
+                <form action="insert-employee.php" method="post" class="add-form">
                 <p>
                     <?php
                         
@@ -58,7 +59,7 @@ session_start();
                     <label for="department">Department:</label>
                    <select name="department" id="department" required>
                        <?php
-                       include('config');
+                       include('config.php');
                        $sql = "SELECT dept_name FROM department";
                        $res = mysqli_query($conn, $sql);
                        while ($data=mysqli_fetch_array($res)) {?>
@@ -99,7 +100,7 @@ session_start();
 
 </html>
 <?php
-unset($_SESSION['employee-insert']); 
+unset($_SESSION['employee-insert'], $_SESSION['which-page']); 
 ?>
 
 

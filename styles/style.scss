@@ -45,6 +45,11 @@ h1,
 
     .sidebar-items {
         .items-container {
+            padding: 0 10px;
+            margin-bottom: 3px;
+            &:hover {
+                background-color: rgba($color: #fff, $alpha: 0.5);
+            }
             &:hover .tooltip-text {
                 display: none
             }
@@ -171,6 +176,13 @@ h1,
     header,
     .logout {
         @include flex.FlexBox(space-between, center);
+    }
+
+    header {
+        a{
+            font-size: 1rem;
+            margin-left: 10px;
+        }
     }
 
     .logout {

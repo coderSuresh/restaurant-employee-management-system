@@ -1,3 +1,7 @@
+<?php 
+    session_start();                    
+    $_SESSION['which-page'] = "Positions";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,27 +20,18 @@
 <body>
     <main>
         <!-- ======siderbar start====== -->
-         <?php @include('sidebar.php'); ?>
+         <?php include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-                <?php @include('header.php'); ?>
+                <?php include('header.php'); ?>
 
             <div class="table-container">
                 <!--======table starts======-->
                 <table>
-                    <tr>
-                        <th>SN</th>
-                        <th>Position</th>
-                        <th>Department</th>
-                        <th>Salary</th>
-                        <th>Total Employees</th>
-                        <th>Action</th>
-                    </tr>
-
                     <?php
-                        include('config.php');
+                        include("config.php");
                         $sql = "SELECT salary.salary, 
                                 position.p_name,
                                 position.p_id, 
@@ -47,6 +42,19 @@
                                 order by dept_name ASC";
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         if(mysqli_num_rows($res) > 0) {
+
+                    ?>
+
+                      <tr>
+                        <th>SN</th>
+                        <th>Position</th>
+                        <th>Department</th>
+                        <th>Salary</th>
+                        <th>Total Employees</th>
+                        <th>Action</th>
+                    </tr>
+
+                    <?php
                             $i = 1;
                             while($row = mysqli_fetch_assoc($res)) {
                     ?>
@@ -71,11 +79,17 @@
                                 <img src="../images/options.svg" alt="action menu">
                                 <div class="action-menu-items">
 
-                                    <form action="./edit-position" method="post">
-                                        <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; ?>">
+                                    <form action="./edit-position.php" method="post">
+                                        <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; $_SESSION['p_id'] = $row['p_id'];?>">
                                         <input type="submit" name="edit_position" value="Edit">
-                                    </form>                                    
-                                    <form action="./delete-position" method="post">
+                                    </form> 
+                                    
+                                    <form action="./view-position.php" method="post">
+                                        <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; $_SESSION['p_id'] = $row['p_id'];?>">
+                                        <input type="submit" name="view_position" value="View">
+                                    </form> 
+                                    
+                                    <form action="./delete-position.php" method="post">
                                         <input type="hidden" name="p_id" value = "<?php echo $row['p_id']; ?>">
                                         <input type="submit" name="delete_position" value="Delete" class="delete_warn">
                                     </form>
@@ -99,3 +113,5 @@
 </body>
 
 </html>
+
+<?php unset($_SESSION['which-page']); ?>

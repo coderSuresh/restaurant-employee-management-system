@@ -1,5 +1,7 @@
-<?php session_start();
-      include('config.php');
+<?php 
+    session_start();                    
+    $_SESSION['which-page'] = "Edit Employee";
+    include('config.php');
  ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -53,7 +55,7 @@
                         $res = mysqli_query($conn, $sql) or die(mysqli_error($conn));
                         $row = mysqli_fetch_assoc($res);
                 ?>
-                <form action="./edit-employee-main" method="post" class="add-form">
+                <form action="./edit-employee-main.php" method="post" class="add-form">
                      <p>
                     <?php
                         
@@ -118,3 +120,4 @@
 </body>
 
 </html>
+<?php unset($_SESSION['which-page']); ?>

@@ -1,3 +1,7 @@
+<?php 
+    session_start();                    
+    $_SESSION['which-page'] = "Edit Department";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,7 +20,9 @@
 <body>
     <main>
         <!-- ======siderbar start====== -->
-       <?php include('sidebar.php'); ?>
+       <?php
+        include('sidebar.php'); 
+       ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
@@ -26,7 +32,7 @@
                     include('config.php');
                 ?>
             <div class="table-container">
-                <form action="./edit-department-main" method="post" class="add-form add-department">
+                <form action="./edit-department-main.php" method="post" class="add-form add-department">
                     <p>
                            <?php
                         
@@ -43,6 +49,7 @@
                     <input type="text" name="dept-name" value="<?php 
                                                             if(isset($_POST['edit_department'])) {
                                                                 $dept_id = $_POST['dept_id'];
+                                                                $_SESSION['dept_id'] = $dept_id;
                                                                 $sql = "select dept_name from department where dept_id = $dept_id";
                                                                 $res = mysqli_query($conn, $sql) or die("Could not fetch department name " . mysqli_error($conn));
                                                                 $row = mysqli_fetch_assoc($res);
@@ -50,8 +57,6 @@
                                                                  echo $dept_name; 
                                                             }
                                                         ?>">
-                    <input type="hidden" name="dept_id" value="<?php echo $dept_id; ?>">
-
                     <input type="submit" value="Edit Department" name="edit-department">
 
                 </form>
@@ -62,3 +67,4 @@
 </body>
 
 </html>
+<?php unset($_SESSION['which-page']); ?>

@@ -1,5 +1,7 @@
-<?php session_start();?>
-<!DOCTYPE html>
+<?php 
+    session_start();                    
+    $_SESSION['which-page'] = "Edit Position";
+?><!DOCTYPE html>
 <html lang="en">
 
 <head>
@@ -24,7 +26,7 @@
         <div class="body">
                <?php include('header.php'); ?>
             <div class="table-container">
-                <form action="./edit-position-main" method="post" class="add-form">
+                <form action="./edit-position-main.php" method="post" class="add-form">
                     <?php
                         include('config.php');
                         //selected position
@@ -95,3 +97,4 @@
 </body>
 
 </html>
+<?php unset($_SESSION['which-page']); ?>

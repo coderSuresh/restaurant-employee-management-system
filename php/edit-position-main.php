@@ -17,12 +17,12 @@ session_start();
     if(!preg_match("/^[A-Z a-z]{2,30}$/", $name))
     {
          $_SESSION["invalid_name"] = "Employee name sould contain alphabaet only";
-         header("Location:edit-position");
+         header("Location:edit-position.php");
     }
     else if(!preg_match("/^[0-9]{1,}$/", $salary))
     {
          $_SESSION["invalid_salary"] = "Salary should number only";
-         header("Location:edit-position");
+         header("Location:edit-position.php");
     }
     else
    {
@@ -34,9 +34,9 @@ session_start();
         $sql_pos = "UPDATE position set p_name = '$name', dept_id = $dept_id where p_id = $id";
         mysqli_query($conn, $sql_pos) or die(mysqli_error($conn));
 
-        header("location:./positions");
+        header("location:./positions.php");
     }
       
     } 
-    else header("location:./positions");
+    else header("location:./positions.php");
 ?>

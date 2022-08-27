@@ -1,6 +1,6 @@
 <?php
 session_start();
-@include('config.php');
+include('config.php');
 
 if (isset($_POST['add-department']))
 {
@@ -8,7 +8,7 @@ if (isset($_POST['add-department']))
     if(!preg_match("/^[A-Z a-z]{2,30}$/", $dept_name))
     {
          $_SESSION["invalid_department"] = "Department name should contain alphabaet only";
-            header("Location:add-department");
+            header("Location:add-department.php");
     }
     else
     {
@@ -17,7 +17,7 @@ if (isset($_POST['add-department']))
      if($result)
     {
         $_SESSION['deptartment-insert'] = "Inserted succesfully";
-         header("Location:add-department");
+         header("Location:add-department.php");
     }  
     else {echo "error";} 
     }      
@@ -25,6 +25,6 @@ if (isset($_POST['add-department']))
 
 else
 {
-    header("Location:add-department");
+    header("Location:add-department.php");
 }
 ?>

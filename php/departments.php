@@ -1,3 +1,7 @@
+<?php 
+    session_start();                    
+    $_SESSION['which-page'] = "Departments";
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -16,12 +20,14 @@
 <body>
     <main>
         <!-- ======siderbar start====== -->
-     <?php session_start();@include('sidebar.php'); ?>
+     <?php 
+        include('sidebar.php'); 
+     ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-              <?php @include('header.php'); ?>
+              <?php include('header.php'); ?>
             <div class="table-container">
                 <div class="grid-container">
                      <?php
@@ -52,17 +58,17 @@
                         </div>
                         <div class="overlay">
                             <!-- ======edit department====== -->
-                            <form action="./edit-department" method="post">
+                            <form action="./edit-department.php" method="post">
                                 <input type="hidden" name="dept_id" value="<?php echo $row['dept_id']; ?>">
                                 <input type="submit" name="edit_department" value="Edit">
                             </form>
                             <!-- =======view department====== -->
-                             <form action="./view-department" method="post">
+                             <form action="./view-department.php" method="post">
                                 <input type="hidden" name="dept_id" value="<?php echo $row['dept_id']; ?>">
                                 <input type="submit" name="view_department" value="View">
                             </form>
                             <!-- ======delete department====== -->
-                            <form action="./delete-department" method="post">
+                            <form action="./delete-department.php" method="post">
                               <?php   $_SESSION['dept_id'] = $row['dept_id'];?>
                                 
                                 <input type="hidden" name="dept_id" value="<?php echo $_SESSION['dept_id']; ?>">

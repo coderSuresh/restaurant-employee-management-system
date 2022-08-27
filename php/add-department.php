@@ -1,7 +1,7 @@
 <?php 
-session_start();
+    session_start();                    
+    $_SESSION['which-page'] = "Add Department";
 ?>
-
 <!DOCTYPE html>
 <html lang="en">
 
@@ -20,14 +20,14 @@ session_start();
 <body>
     <main>
         <!-- ======siderbar start====== -->
-      <?php @include('sidebar.php'); ?>
+      <?php include('sidebar.php'); ?>
         <!-- ======siderbar end====== -->
 
         <!-- ======main body start====== -->
         <div class="body">
-               <?php @include('header.php'); ?>
+               <?php include('header.php'); ?>
             <div class="table-container">
-                <form action="insert-department" method="post" class="add-form add-department">
+                <form action="insert-department.php" method="post" class="add-form add-department">
                     <?php                        
                         if(isset($_SESSION["invalid_department"]))
                         {
@@ -60,5 +60,5 @@ session_start();
 
 </html>
 <?php
-unset($_SESSION['deptartment-insert']); 
+unset($_SESSION['deptartment-insert'], $_SESSION['which-page']); 
 ?>

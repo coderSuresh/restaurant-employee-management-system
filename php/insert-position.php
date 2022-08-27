@@ -1,6 +1,6 @@
 <?php
 session_start();
-@include('config.php');
+include('config.php');
 if (isset($_POST['add-position']))
 {    
     if(!empty($_POST['department']))
@@ -18,12 +18,12 @@ if (isset($_POST['add-position']))
     if(!preg_match("/^[a-z A-Z]{1,}$/", $pos_name))
     {
         $_SESSION["invalid_position"] = "Position should contain alaphabate only";
-        header("Location:add-position");
+        header("Location:add-position.php");
     }
     else if(!preg_match("/^[0-9]{1,}$/", $salary))  
     {
         $_SESSION["invalid_salary"] = "Salary should contain digit only";
-        header("Location:add-position");
+        header("Location:add-position.php");
     }
     else
     {
@@ -34,12 +34,12 @@ if (isset($_POST['add-position']))
     if($result)
     {
         $_SESSION['position-insert'] = "Inserted succesfully";
-        header("Location:add-position");
+        header("Location:add-position.php");
     }   
 }    
 }
 else
 {
-    header("Location:add-position");
+    header("Location:add-position.php");
 }
 ?>
