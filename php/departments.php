@@ -27,7 +27,13 @@
 
         <!-- ======main body start====== -->
         <div class="body">
-              <?php include('header.php'); ?>
+              <?php include('header.php'); 
+                if(isset($_SESSION['non-empty-dept'])) { 
+                    echo "<script>
+                          alert('Can not delete non-empty department! Please delete associated employees and positions first.');
+                          </script>";
+                  }
+              ?>
             <div class="table-container">
                 <div class="grid-container">
                      <?php
@@ -69,7 +75,10 @@
                             </form>
                             <!-- ======delete department====== -->
                             <form action="./delete-department.php" method="post">
-                              <?php   $_SESSION['dept_id'] = $row['dept_id'];?>
+                              <?php   
+                                $_SESSION['dept_id'] = $row['dept_id'];
+                              ?>
+                    
                                 
                                 <input type="hidden" name="dept_id" value="<?php echo $_SESSION['dept_id']; ?>">
                                 <input type="submit" name="delete_department" value="Delete" class="delete_warn">
@@ -88,3 +97,4 @@
 </body>
 
 </html>
+<?php unset($_SESSION['non-empty-dept']); ?>

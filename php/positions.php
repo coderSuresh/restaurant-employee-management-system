@@ -25,7 +25,13 @@
 
         <!-- ======main body start====== -->
         <div class="body">
-                <?php include('header.php'); ?>
+                <?php include('header.php'); 
+                    if(isset($_SESSION['non-empty-pos'])) { 
+                        echo "<script>
+                              alert('Can not delete non-empty position! Please delete associated employees first.');
+                              </script>";
+                    }
+                ?>
 
             <div class="table-container">
                 <!--======table starts======-->
@@ -114,4 +120,4 @@
 
 </html>
 
-<?php unset($_SESSION['which-page']); ?>
+<?php unset($_SESSION['which-page'], $_SESSION['non-empty-pos']); ?>
