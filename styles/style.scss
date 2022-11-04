@@ -31,7 +31,7 @@ h1,
 }
 
 .sidebar.open {
-    width: 260px;
+    width: 240px;
     text-align: right;
 
     .admin-info {
@@ -46,16 +46,20 @@ h1,
     .sidebar-items {
         .items-container {
             padding: 0 10px;
-            margin-bottom: 3px;
-            &:hover {
-                background-color: rgba($color: #fff, $alpha: 0.5);
-            }
             &:hover .tooltip-text {
                 display: none
+            }
+            a {
+                &:hover {
+                        background-color: rgba($color: #fff, $alpha: 0.5);
+                    }
             }
         }
 
         a {
+            min-width: 100%;
+            padding: 4px 10px;
+            border-radius: 7px;
             @include flex.FlexBox(center, center);
         }
 
@@ -163,7 +167,7 @@ h1,
 }
 
 .body.open {
-    margin-left: 260px;
+    margin-left: 240px;
 }
 
 .body {
