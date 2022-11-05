@@ -14,7 +14,7 @@ if (isset($_POST['add-employee'])){
          header("Location:add-employee.php");
     }
     
-    else if(!preg_match("/^[0-9A-Z a-z]{2,30}$/", $emp_address))
+    else if(!preg_match("/^[0-9A-Z a-z,-]{2,30}$/", $emp_address))
     {
         $_SESSION["invalid_address"] = "Address shouldn't contain special characters";
         header("Location:add-employee.php");
